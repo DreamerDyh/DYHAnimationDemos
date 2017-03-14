@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  DYHAnimationDemos
 //
 //  Created by Dai Yunhao on 17/3/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RootViewController : UIViewController
 
 @end
-
