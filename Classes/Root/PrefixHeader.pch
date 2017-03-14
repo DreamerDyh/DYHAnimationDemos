@@ -9,5 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#define DYHCellHeight 55.0f
 
 #endif /* PrefixHeader_pch */

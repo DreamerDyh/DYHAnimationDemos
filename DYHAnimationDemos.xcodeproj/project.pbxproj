@@ -127,6 +127,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBB490FF1E77C07300AA54D0 /* BaseComponents */,
 				BBB291491E7799630068ACF8 /* AppDelegate */,
 				BBB291451E7799290068ACF8 /* Root */,
 				BBB2910F1E7797800068ACF8 /* Supporting Files */,
@@ -182,6 +183,14 @@
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
+		};
+		BBB490FF1E77C07300AA54D0 /* BaseComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BaseComponents;
+			path = Classes/BaseComponents;
+			sourceTree = SOURCE_ROOT;
 		};
 		FC83AC226152A8700C05C86C /* Pods */ = {
 			isa = PBXGroup;
