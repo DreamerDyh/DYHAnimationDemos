@@ -206,38 +206,39 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     }
     self.isAnimating = YES;
     
-    
-    CGFloat xFactor = 0,yFactor = 0,zFactor = 0;
-    switch (sender.tag) {
-        case buttonTagX:
-            xFactor = 1.f;
-            break;
-        case buttonTagY:
-            yFactor = 1.f;
-            break;
-        case buttonTagZ:
-            zFactor = 1.f;
-            break;
-        default:
-            break;
-    }
-    
     //配置目标transform
     CATransform3D transform;
+    
     if (sender.tag == buttonTagReback) {
         //复位
         transform = CATransform3DIdentity;
     } else {
         //旋转
+        CGFloat xFactor = 0,yFactor = 0,zFactor = 0;
+        //根据tag，判断绕哪根轴旋转
+        switch (sender.tag) {
+            case buttonTagX:
+                xFactor = 1.f;
+                break;
+            case buttonTagY:
+                yFactor = 1.f;
+                break;
+            case buttonTagZ:
+                zFactor = 1.f;
+                break;
+            default:
+                break;
+        }
+        
         transform = CATransform3DConcat(CATransform3DIdentity, self.centerLayer.transform);
-        transform = CATransform3DRotate(transform, M_PI / 2, xFactor, yFactor, zFactor);
+        transform = CATransform3DRotate(transform, M_PI / 4, xFactor, yFactor, zFactor);
     }
     
     //添加动画
     self.centerLayer.transform = transform;
     CABasicAnimation* transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     transformAnimation.delegate = self;
-    transformAnimation.duration = 2.f;
+    transformAnimation.duration = 0.4f;
     transformAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.centerLayer addAnimation:transformAnimation forKey:nil];
 }
