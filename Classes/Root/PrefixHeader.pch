@@ -9,6 +9,21 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define DYHCellHeight 55.0f
+#pragma mark - 常量
+
+#define kDYHCellHeight 55.0f
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#pragma mark - 宏调用
+
+#define SYSFONT(size) ([UIFont systemFontOfSize:size])
+#define RGBCOLOR(r,g,b) RGBACOLOR(r,g,b,1.f)
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a]
+
+#pragma mark - 通用头文件
+
+#import <Masonry.h>
 
 #endif /* PrefixHeader_pch */

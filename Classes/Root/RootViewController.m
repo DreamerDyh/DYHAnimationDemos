@@ -10,7 +10,7 @@
 
 #import "Easy3DViewController.h"
 
-#define NormalRootCellId @"NormalRootCellId"
+#define kNormalRootCellId @"NormalRootCellId"
 
 typedef NS_ENUM(NSInteger, rowTags) {
     demo1_easy3d = 101,
@@ -38,9 +38,9 @@ typedef NS_ENUM(NSInteger, rowTags) {
     self.navigationItem.title = @"Menu";
     
     //配置tableView的一些基本属性
-    self.tableView.rowHeight = DYHCellHeight;
+    self.tableView.rowHeight = kDYHCellHeight;
     self.tableView.tableFooterView = [UIView new];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NormalRootCellId];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kNormalRootCellId];
 }
 
 #pragma mark - Getter / Setter
@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 
 - (UITableViewCell *)normalCellWithText:(NSString *)text showAccessory:(BOOL)showAccessory
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NormalRootCellId];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kNormalRootCellId];
     cell.textLabel.text = text;
     cell.accessoryType = showAccessory ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     return cell;
