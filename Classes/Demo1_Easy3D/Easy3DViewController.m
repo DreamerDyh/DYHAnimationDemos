@@ -118,7 +118,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     [m34Switch sizeToFit];
     [m34Switch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).offset(3.5 * kExtraMargin);
-        make.top.equalTo(self.view.mas_top).offset(2 * kTopGuideHeight);
+        make.top.equalTo(self.view.mas_top).offset(self.centerLayer.frame.origin.y - 3*kExtraMargin);
     }];
     
     //m34开关旁的提示Label
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     self.isAnimaTingTipLabel = isAnimaTingTipLabel;
     
     [isAnimaTingTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(m34tipLabel.mas_top).offset(-kExtraMargin-5.f);
+        make.bottom.equalTo(m34tipLabel.mas_top).offset(-kExtraMargin);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
     
@@ -185,7 +185,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     //位置与size
     [activeButton sizeToFit];
     [activeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.m34Switch.mas_bottom).offset(kCenterLayerWH + 3*kExtraMargin + (tag - 1)*kExtraMarginLarge);
+        make.top.equalTo(self.view.mas_top).offset(CGRectGetMaxY(self.centerLayer.frame)+kExtraMargin+(tag - 1)*kExtraMarginLarge);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
     
