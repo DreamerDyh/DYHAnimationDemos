@@ -61,6 +61,15 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 {
     _isAnimating = isAnimating;
     self.isAnimaTingTipLabel.text = isAnimating ? @"⭕️正在执行动画..." : @"⚠️动画执行结束";
+    if (isAnimating) {
+        for (UIButton *button in self.buttons) {
+            button.enabled = NO;
+        }
+    } else {
+        for (UIButton *button in self.buttons) {
+            button.enabled = YES;
+        }
+    }
 }
 
 - (NSMutableArray *)buttons
