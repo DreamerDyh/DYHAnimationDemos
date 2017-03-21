@@ -17,9 +17,10 @@
 #define kLayerColor RGBCOLOR(15, 182, 242)
 
 typedef NS_ENUM(NSInteger, buttonTag) {
-    buttonTagX = 0,
+    buttonTagX = 1,
     buttonTagY,
-    buttonTagZ
+    buttonTagZ,
+    buttonTagReback
 };
 
 @interface Easy3DViewController ()<CAAnimationDelegate>
@@ -54,7 +55,17 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 - (void)setIsPerspective:(BOOL)isPerspective
 {
     _isPerspective = isPerspective;
+    
+    //配置是否需要透视
+    if (isPerspective) {
+        CATransform3D perspective = CATransform3DIdentity;
+        perspective.m34 = - 1.f / 200.f;
+        self.view.layer.sublayerTransform = perspective;
+    } else {
+        self.view.layer.sublayerTransform = CATransform3DIdentity;
+    }
     self.m34TipLabel.text = isPerspective ? @"透视开启中" : @"透视已关闭";
+    self.centerLayer.transform = CATransform3DIdentity;
 }
 
 - (void)setIsAnimating:(BOOL)isAnimating
@@ -62,10 +73,12 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     _isAnimating = isAnimating;
     self.isAnimaTingTipLabel.text = isAnimating ? @"⭕️正在执行动画..." : @"⚠️动画执行结束";
     if (isAnimating) {
+        self.m34Switch.enabled = NO;
         for (UIButton *button in self.buttons) {
             button.enabled = NO;
         }
     } else {
+        self.m34Switch.enabled = YES;
         for (UIButton *button in self.buttons) {
             button.enabled = YES;
         }
@@ -91,9 +104,8 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     centerLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"whiteBear"].CGImage);
     centerLayer.frame = CGRectMake((SCREEN_WIDTH - kCenterLayerWH)/2, (SCREEN_HEIGHT - kCenterLayerWH)/2, kCenterLayerWH, kCenterLayerWH);
     centerLayer.backgroundColor = kLayerColor.CGColor;
-    centerLayer.shadowPath = [UIBezierPath bezierPathWithRect:centerLayer.bounds].CGPath;
-    centerLayer.shadowOpacity = 0.5f;
-    centerLayer.shadowOffset = CGSizeMake(0, 5);
+    centerLayer.borderColor = [UIColor blackColor].CGColor;
+    centerLayer.borderWidth = 2.f;
     [self.view.layer addSublayer:centerLayer];
     self.centerLayer = centerLayer;
     
@@ -136,6 +148,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     [self addActiveButtonWithTitle:@"点击绕X轴旋转" tag:buttonTagX];
     [self addActiveButtonWithTitle:@"点击绕Y轴旋转" tag:buttonTagY];
     [self addActiveButtonWithTitle:@"点击绕Z轴旋转" tag:buttonTagZ];
+    [self addActiveButtonWithTitle:@"复位" tag:buttonTagReback];
 }
 
 - (void)setUpDatas
@@ -172,7 +185,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     //位置与size
     [activeButton sizeToFit];
     [activeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.m34Switch.mas_bottom).offset(kCenterLayerWH + 3*kExtraMargin + tag*kExtraMarginLarge);
+        make.top.equalTo(self.m34Switch.mas_bottom).offset(kCenterLayerWH + 3*kExtraMargin + (tag - 1)*kExtraMarginLarge);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
     
@@ -191,8 +204,10 @@ typedef NS_ENUM(NSInteger, buttonTag) {
         //不重复执行动画
         return;
     }
+    self.isAnimating = YES;
     
-    CGFloat xFactor,yFactor,zFactor = 0;
+    
+    CGFloat xFactor = 0,yFactor = 0,zFactor = 0;
     switch (sender.tag) {
         case buttonTagX:
             xFactor = 1.f;
@@ -207,20 +222,22 @@ typedef NS_ENUM(NSInteger, buttonTag) {
             break;
     }
     
-    self.isAnimating = YES;
-    
     //配置目标transform
-    CATransform3D transform = CATransform3DIdentity;
-    transform = CATransform3DRotate(transform, M_PI_4, xFactor, yFactor, zFactor);
-    if (self.isPerspective) {
-        //通过配置m34 开启透视
-        transform.m34 = - 1.0 / 500.0;
+    CATransform3D transform;
+    if (sender.tag == buttonTagReback) {
+        //复位
+        transform = CATransform3DIdentity;
+    } else {
+        //旋转
+        transform = CATransform3DConcat(CATransform3DIdentity, self.centerLayer.transform);
+        transform = CATransform3DRotate(transform, M_PI / 2, xFactor, yFactor, zFactor);
     }
+    
     //添加动画
+    self.centerLayer.transform = transform;
     CABasicAnimation* transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     transformAnimation.delegate = self;
     transformAnimation.duration = 2.f;
-    transformAnimation.toValue = [NSValue valueWithCATransform3D:transform];
     transformAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.centerLayer addAnimation:transformAnimation forKey:nil];
 }
