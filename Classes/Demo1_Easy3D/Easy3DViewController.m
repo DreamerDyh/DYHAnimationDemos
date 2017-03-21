@@ -88,8 +88,12 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     
     //中间的Label
     CALayer *centerLayer = [CALayer new];
+    centerLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"whiteBear"].CGImage);
     centerLayer.frame = CGRectMake((SCREEN_WIDTH - kCenterLayerWH)/2, (SCREEN_HEIGHT - kCenterLayerWH)/2, kCenterLayerWH, kCenterLayerWH);
     centerLayer.backgroundColor = kLayerColor.CGColor;
+    centerLayer.shadowPath = [UIBezierPath bezierPathWithRect:centerLayer.bounds].CGPath;
+    centerLayer.shadowOpacity = 0.5f;
+    centerLayer.shadowOffset = CGSizeMake(0, 5);
     [self.view.layer addSublayer:centerLayer];
     self.centerLayer = centerLayer;
     
