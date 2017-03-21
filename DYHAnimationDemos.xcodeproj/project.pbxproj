@@ -16,6 +16,7 @@
 		BBB291351E7797800068ACF8 /* DYHAnimationDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291341E7797800068ACF8 /* DYHAnimationDemosUITests.m */; };
 		BBB291481E7799290068ACF8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291471E7799290068ACF8 /* RootViewController.m */; };
 		BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB2914B1E7799630068ACF8 /* AppDelegate.m */; };
+		BBE106EF1E80CA820072C8EB /* Easy3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE106EE1E80CA820072C8EB /* Easy3DViewController.m */; };
 		BF809380B08DF8D22FDB54AE /* libPods-DYHAnimationDemos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		BBB291471E7799290068ACF8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		BBB2914A1E7799630068ACF8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBB2914B1E7799630068ACF8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBE106ED1E80CA820072C8EB /* Easy3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Easy3DViewController.h; sourceTree = "<group>"; };
+		BBE106EE1E80CA820072C8EB /* Easy3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Easy3DViewController.m; sourceTree = "<group>"; };
 		C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D470F650B96A4CF78AFEE31E /* Pods-DYHAnimationDemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5F0796DF3908D2040C9C196 /* Pods-DYHAnimationDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBE106EC1E80CA660072C8EB /* Demo1_Easy3D */,
 				BBB490FF1E77C07300AA54D0 /* BaseComponents */,
 				BBB291491E7799630068ACF8 /* AppDelegate */,
 				BBB291451E7799290068ACF8 /* Root */,
@@ -190,6 +194,16 @@
 			);
 			name = BaseComponents;
 			path = Classes/BaseComponents;
+			sourceTree = SOURCE_ROOT;
+		};
+		BBE106EC1E80CA660072C8EB /* Demo1_Easy3D */ = {
+			isa = PBXGroup;
+			children = (
+				BBE106ED1E80CA820072C8EB /* Easy3DViewController.h */,
+				BBE106EE1E80CA820072C8EB /* Easy3DViewController.m */,
+			);
+			name = Demo1_Easy3D;
+			path = Classes/Demo1_Easy3D;
 			sourceTree = SOURCE_ROOT;
 		};
 		FC83AC226152A8700C05C86C /* Pods */ = {
@@ -472,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */,
+				BBE106EF1E80CA820072C8EB /* Easy3DViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,
 			);

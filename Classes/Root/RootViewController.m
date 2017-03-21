@@ -8,15 +8,17 @@
 
 #import "RootViewController.h"
 
+#import "Easy3DViewController.h"
+
 #define NormalRootCellId @"NormalRootCellId"
 
 typedef NS_ENUM(NSInteger, rowTags) {
-    rowDemo = 101,
+    demo1_easy3d = 101,
 };
 
 @interface RootViewController ()
 
-@property (nonatomic, strong) NSArray *demos;
+@property (nonatomic, strong) NSDictionary *demos;
 
 @end
 
@@ -43,10 +45,12 @@ typedef NS_ENUM(NSInteger, rowTags) {
 
 #pragma mark - Getter / Setter
 
-- (NSArray *)demos
+- (NSDictionary *)demos
 {
     if (!_demos) {
-        _demos = @[@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo),@(rowDemo)];
+        _demos = @{
+                   @(demo1_easy3d):[Easy3DViewController class]
+                   };
     }
     return _demos;
 }
@@ -55,40 +59,42 @@ typedef NS_ENUM(NSInteger, rowTags) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.demos.count;
+    return self.demos.allKeys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger cellTag = [self cellTagForRow:(NSUInteger)indexPath.row];
+    NSString *text;
     switch (cellTag) {
-        case rowDemo:
-            return [self normalCellWithText:@"demo1" showAccessory:YES];
+        case demo1_easy3d:
+            text = @"Demo1-简单3d变换";
             break;
         default:
-            return [self normalCellWithText:@"⚠️error cell existance" showAccessory:NO];
+            text = @"404";
             break;
     }
+    return [self normalCellWithText:text showAccessory:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //根据cellTag解析出class
     NSInteger cellTag = [self cellTagForRow:(NSUInteger)indexPath.row];
-    switch (cellTag) {
-        case rowDemo:
-            break;
-            
-        default:
-            break;
-    }
+    Class vcClass = [self.demos objectForKey:@(cellTag)];
+    
+    //创建并push对应的控制器
+    UIViewController* vc = [vcClass new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 工具函数
 
 - (NSInteger)cellTagForRow:(NSUInteger)row
 {
-    return [[self.demos objectAtIndex:row] integerValue];
+    return [[self.demos.allKeys objectAtIndex:row] integerValue];
 }
 
 - (UITableViewCell *)normalCellWithText:(NSString *)text showAccessory:(BOOL)showAccessory
