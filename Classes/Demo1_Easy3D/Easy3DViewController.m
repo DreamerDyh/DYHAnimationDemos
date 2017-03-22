@@ -103,7 +103,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     CALayer *centerLayer = [CALayer new];
     centerLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"whiteBear"].CGImage);
     centerLayer.frame = CGRectMake((SCREEN_WIDTH - kCenterLayerWH)/2, (SCREEN_HEIGHT - kCenterLayerWH)/2, kCenterLayerWH, kCenterLayerWH);
-    centerLayer.backgroundColor = kLayerColor.CGColor;
     centerLayer.borderColor = [UIColor blackColor].CGColor;
     centerLayer.borderWidth = 2.f;
     [self.view.layer addSublayer:centerLayer];
@@ -145,9 +144,9 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     }];
     
     //执行动画的buttons
-    [self addActiveButtonWithTitle:@"点击绕X轴旋转" tag:buttonTagX];
-    [self addActiveButtonWithTitle:@"点击绕Y轴旋转" tag:buttonTagY];
-    [self addActiveButtonWithTitle:@"点击绕Z轴旋转" tag:buttonTagZ];
+    [self addActiveButtonWithTitle:@"绕X轴旋转PI/4" tag:buttonTagX];
+    [self addActiveButtonWithTitle:@"绕Y轴旋转PI/4" tag:buttonTagY];
+    [self addActiveButtonWithTitle:@"绕Z轴旋转PI/4" tag:buttonTagZ];
     [self addActiveButtonWithTitle:@"复位" tag:buttonTagReback];
 }
 
