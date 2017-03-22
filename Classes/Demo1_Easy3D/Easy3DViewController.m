@@ -7,13 +7,11 @@
 //
 
 #import "Easy3DViewController.h"
+#import "DYHActiveButton.h"
 
-#define kTopGuideHeight 64.f
 #define kCenterLayerWH 200.f
 #define kExtraMargin 15.f
-#define kButtonInnerMargin 5.f
 #define kExtraMarginLarge 35.f
-#define kButtonColor RGBCOLOR(242, 57, 103)
 #define kLayerColor RGBCOLOR(15, 182, 242)
 
 typedef NS_ENUM(NSInteger, buttonTag) {
@@ -166,15 +164,8 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 - (void)addActiveButtonWithTitle:(NSString *)title tag:(NSInteger)tag
 {
     //配置button
-    UIButton *activeButton = [UIButton new];
-    activeButton.layer.cornerRadius = kButtonInnerMargin;
-    activeButton.layer.borderColor = kButtonColor.CGColor;
-    activeButton.layer.borderWidth = 1.f;
+    DYHActiveButton *activeButton = [DYHActiveButton new];
     [activeButton setTitle:title forState:UIControlStateNormal];
-    [activeButton setTitleColor:kButtonColor forState:UIControlStateNormal];
-    [activeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    activeButton.contentEdgeInsets = UIEdgeInsetsMake(kButtonInnerMargin, kButtonInnerMargin, kButtonInnerMargin, kButtonInnerMargin);
-    activeButton.titleLabel.font = SYSFONT(14.f);
     [activeButton addTarget:self action:@selector(active:) forControlEvents:UIControlEventTouchUpInside];
     activeButton.tag = tag;
     
