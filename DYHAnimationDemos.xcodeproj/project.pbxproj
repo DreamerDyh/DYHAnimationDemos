@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25559BA09B7583100E2696DC /* libPods-DYHAnimationDemosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C8B3A324E44509E9B3878 /* libPods-DYHAnimationDemosUITests.a */; };
 		317CB68DF630FC10EC45AF83 /* libPods-DYHAnimationDemosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */; };
+		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
 		BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA621151E8217DF00C32540 /* DYHActiveButton.m */; };
 		BBB291111E7797800068ACF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291101E7797800068ACF8 /* main.m */; };
 		BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911B1E7797800068ACF8 /* Assets.xcassets */; };
@@ -45,6 +46,8 @@
 		AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40F1D821F119623730138CA /* Pods-DYHAnimationDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemos/Pods-DYHAnimationDemos.release.xcconfig"; sourceTree = "<group>"; };
 		B69E6C2538A696147AA4491E /* Pods-DYHAnimationDemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosUITests/Pods-DYHAnimationDemosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
+		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
 		BB80D6441E779A6400399A42 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BBA621141E8217DF00C32540 /* DYHActiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHActiveButton.h; sourceTree = "<group>"; };
 		BBA621151E8217DF00C32540 /* DYHActiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHActiveButton.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				BBA621141E8217DF00C32540 /* DYHActiveButton.h */,
 				BBA621151E8217DF00C32540 /* DYHActiveButton.m */,
+				BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */,
+				BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */,
 			);
 			name = BaseComponents;
 			path = Classes/BaseComponents;
@@ -492,6 +497,7 @@
 			files = (
 				BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */,
 				BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */,
+				BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* Easy3DViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,

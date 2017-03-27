@@ -31,10 +31,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 @property (nonatomic, strong) NSMutableArray *buttons;
 
-@property (nonatomic, weak) UILabel *isAnimaTingTipLabel;
-
-@property (nonatomic, assign) BOOL isAnimating; //是否正在执行动画
-
 @property (nonatomic, assign) BOOL isPerspective; //是否开启透视
 
 @end
@@ -68,8 +64,8 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 - (void)setIsAnimating:(BOOL)isAnimating
 {
-    _isAnimating = isAnimating;
-    self.isAnimaTingTipLabel.text = isAnimating ? @"⭕️正在执行动画..." : @"⚠️动画执行结束";
+    [super setIsAnimating:isAnimating];
+    
     if (isAnimating) {
         self.m34Switch.enabled = NO;
         for (UIButton *button in self.buttons) {
@@ -127,18 +123,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     [m34tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(m34Switch.mas_centerY);
         make.right.equalTo(m34Switch.mas_left).offset(-kExtraMargin);
-    }];
-    
-    //动画状态提示Label
-    UILabel *isAnimaTingTipLabel = [UILabel new];
-    isAnimaTingTipLabel.font = SYSFONT(15.f);
-    isAnimaTingTipLabel.textColor = kLayerColor;
-    [self.view addSubview:isAnimaTingTipLabel];
-    self.isAnimaTingTipLabel = isAnimaTingTipLabel;
-    
-    [isAnimaTingTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(m34tipLabel.mas_top).offset(-kExtraMargin);
-        make.centerX.equalTo(self.view.mas_centerX);
     }];
     
     //执行动画的buttons

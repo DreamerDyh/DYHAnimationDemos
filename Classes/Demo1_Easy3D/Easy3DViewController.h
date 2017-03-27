@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Dai Yunhao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DYHBaseAnimateSceneViewController.h"
 
-@interface Easy3DViewController : UIViewController
+@interface Easy3DViewController : DYHBaseAnimateSceneViewController
 
 @end
