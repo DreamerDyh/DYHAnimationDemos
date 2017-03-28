@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, rowTags) {
 
 @property (nonatomic, strong) NSDictionary *demos;
 
+@property (nonatomic, strong) NSArray *orderdAllKeys;
+
 @end
 
 @implementation RootViewController
@@ -37,7 +39,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 - (void)setUpSubViews
 {
     //配置title
-    self.navigationItem.title = @"Menu";
+    self.navigationItem.title = @"🙈🙉🙊";
     
     //配置tableView的一些基本属性
     self.tableView.rowHeight = kDYHCellHeight;
@@ -58,11 +60,21 @@ typedef NS_ENUM(NSInteger, rowTags) {
     return _demos;
 }
 
+- (NSArray *)orderdAllKeys
+{
+    if (!_orderdAllKeys) {
+        _orderdAllKeys = [self.demos.allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            return [obj1 compare:obj2];
+        }];
+    }
+    return _orderdAllKeys;
+}
+
 #pragma mark - UITableViewDelegate / UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.demos.allKeys.count;
+    return self.orderdAllKeys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,7 +112,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 
 - (NSInteger)cellTagForRow:(NSUInteger)row
 {
-    return [[self.demos.allKeys objectAtIndex:row] integerValue];
+    return [[self.orderdAllKeys objectAtIndex:row] integerValue];
 }
 
 - (UITableViewCell *)normalCellWithText:(NSString *)text showAccessory:(BOOL)showAccessory
