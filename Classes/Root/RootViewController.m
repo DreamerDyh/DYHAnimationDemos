@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 - (void)setUpSubViews
 {
     //配置title
-    self.navigationItem.title = @"🙈🙉🙊";
+    self.navigationItem.title = @"Demo List";
     
     //配置tableView的一些基本属性
     self.tableView.rowHeight = kDYHCellHeight;
