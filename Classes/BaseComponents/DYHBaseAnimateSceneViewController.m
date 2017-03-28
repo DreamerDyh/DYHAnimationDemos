@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpSubviews];
+    [self _setUpSubviews];
+    [self _setUpDatas];
 }
 
 #pragma mark - Setter / Getter
@@ -51,7 +52,7 @@
 
 #pragma mark - Subview
 
-- (void)setUpSubviews
+- (void)_setUpSubviews
 {
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -71,6 +72,11 @@
         make.width.equalTo(self.view.mas_width);
     }];
     
+}
+
+- (void)_setUpDatas
+{
+    self.isAnimating = NO;
 }
 
 @end

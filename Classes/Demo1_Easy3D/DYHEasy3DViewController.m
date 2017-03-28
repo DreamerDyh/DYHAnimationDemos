@@ -122,7 +122,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 {
     //强制初始化一次isPerspective，给m34tipLabel赋值
     self.isPerspective = NO;
-    self.isAnimating = NO;
 }
 
 - (void)setUpNav
