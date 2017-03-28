@@ -8,7 +8,7 @@
 
 #import "RootViewController.h"
 
-#import "Easy3DViewController.h"
+#import "DYHEasy3DViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 {
     if (!_demos) {
         _demos = @{
-                   @(demo1_easy3d):[Easy3DViewController class]
+                   @(demo1_easy3d):[DYHEasy3DViewController class]
                    };
     }
     return _demos;

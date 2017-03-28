@@ -8,6 +8,6 @@
 
 #import "DYHBaseAnimateSceneViewController.h"
 
-@interface Easy3DViewController : DYHBaseAnimateSceneViewController
+@interface DYHEasy3DViewController : DYHBaseAnimateSceneViewController
 
 @end

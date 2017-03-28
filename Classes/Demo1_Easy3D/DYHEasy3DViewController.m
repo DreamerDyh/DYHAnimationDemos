@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dai Yunhao. All rights reserved.
 //
 
-#import "Easy3DViewController.h"
+#import "DYHEasy3DViewController.h"
 #import "DYHActiveButton.h"
 
 #define kCenterLayerWH 200.f
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     buttonTagReback
 };
 
-@interface Easy3DViewController ()<CAAnimationDelegate>
+@interface DYHEasy3DViewController ()<CAAnimationDelegate>
 
 @property (nonatomic, weak) CALayer *centerLayer;
 
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 @end
 
-@implementation Easy3DViewController
+@implementation DYHEasy3DViewController
 
 #pragma mark - Life Circle
 
