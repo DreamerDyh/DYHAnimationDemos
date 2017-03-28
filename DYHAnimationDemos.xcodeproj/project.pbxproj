@@ -10,6 +10,7 @@
 		25559BA09B7583100E2696DC /* libPods-DYHAnimationDemosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C8B3A324E44509E9B3878 /* libPods-DYHAnimationDemosUITests.a */; };
 		317CB68DF630FC10EC45AF83 /* libPods-DYHAnimationDemosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */; };
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
+		BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */; };
 		BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA621151E8217DF00C32540 /* DYHActiveButton.m */; };
 		BBB291111E7797800068ACF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291101E7797800068ACF8 /* main.m */; };
 		BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911B1E7797800068ACF8 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
 		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
 		BB80D6441E779A6400399A42 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BB940AE51E8A00DF00A80A3D /* DYHPaperPlaneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHPaperPlaneViewController.h; sourceTree = "<group>"; };
+		BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHPaperPlaneViewController.m; sourceTree = "<group>"; };
 		BBA621141E8217DF00C32540 /* DYHActiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHActiveButton.h; sourceTree = "<group>"; };
 		BBA621151E8217DF00C32540 /* DYHActiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHActiveButton.m; sourceTree = "<group>"; };
 		BBB2910C1E7797800068ACF8 /* DYHAnimationDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYHAnimationDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +117,8 @@
 		BB940AE11E89FFB500A80A3D /* Demo2_PaperPlane */ = {
 			isa = PBXGroup;
 			children = (
+				BB940AE51E8A00DF00A80A3D /* DYHPaperPlaneViewController.h */,
+				BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */,
 			);
 			name = Demo2_PaperPlane;
 			path = Classes/Demo2_PaperPlane;
@@ -508,6 +513,7 @@
 				BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */,
 				BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
+				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,
 			);

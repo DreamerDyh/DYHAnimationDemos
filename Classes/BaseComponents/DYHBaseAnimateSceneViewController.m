@@ -53,6 +53,9 @@
 
 - (void)setUpSubviews
 {
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     //动画状态提示Label
     UILabel *isAnimaTingTipLabel = [UILabel new];
     isAnimaTingTipLabel.font = SYSFONT(15.f);

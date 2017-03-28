@@ -127,7 +127,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 - (void)setUpNav
 {
-    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"Easy3DTransform";
 }
 
