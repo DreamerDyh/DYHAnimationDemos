@@ -66,7 +66,7 @@
     
     //button
     DYHActiveButton *btn = [DYHActiveButton new];
-    [btn setTitle:@"take off" forState:UIControlStateNormal];
+    [btn setTitle:@"起飞" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(takeOff) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     [self.buttons addObject:btn];
