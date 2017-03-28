@@ -77,8 +77,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 - (void)setUpSubViews
 {
-    [self setUpNav];
-    
     //中间的Label
     CALayer *centerLayer = [CALayer new];
     centerLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"whiteBear"].CGImage);
@@ -122,11 +120,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 {
     //强制初始化一次isPerspective，给m34tipLabel赋值
     self.isPerspective = NO;
-}
-
-- (void)setUpNav
-{
-    self.navigationItem.title = @"Easy3DTransform";
 }
 
 - (void)addActiveButtonWithTitle:(NSString *)title tag:(NSInteger)tag

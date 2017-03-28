@@ -80,19 +80,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger cellTag = [self cellTagForRow:(NSUInteger)indexPath.row];
-    NSString *text;
-    switch (cellTag) {
-        case demo1_easy3d:
-            text = @"Demo1-简单3d变换";
-            break;
-        case demo2_papaerPlane:
-            text = @"Demo2-纸飞机";
-            break;
-        default:
-            text = @"404";
-            break;
-    }
-    return [self normalCellWithText:text showAccessory:YES];
+    return [self normalCellWithText:[self textForCellTag:cellTag] showAccessory:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,6 +93,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
     
     //创建并push对应的控制器
     UIViewController* vc = [vcClass new];
+    vc.title = [self textForCellTag:cellTag];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -113,6 +102,24 @@ typedef NS_ENUM(NSInteger, rowTags) {
 - (NSInteger)cellTagForRow:(NSUInteger)row
 {
     return [[self.orderdAllKeys objectAtIndex:row] integerValue];
+}
+
+
+- (NSString *)textForCellTag:(NSInteger)cellTag
+{
+    NSString *text = @"";
+    switch (cellTag) {
+        case demo1_easy3d:
+            text = @"Demo1-简单3d变换";
+            break;
+        case demo2_papaerPlane:
+            text = @"Demo2-纸飞机";
+            break;
+        default:
+            text = @"404";
+            break;
+    }
+    return text;
 }
 
 - (UITableViewCell *)normalCellWithText:(NSString *)text showAccessory:(BOOL)showAccessory
