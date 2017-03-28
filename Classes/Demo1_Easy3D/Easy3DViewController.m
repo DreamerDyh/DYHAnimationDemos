@@ -29,8 +29,6 @@ typedef NS_ENUM(NSInteger, buttonTag) {
 
 @property (nonatomic, weak) UILabel *m34TipLabel;
 
-@property (nonatomic, strong) NSMutableArray *buttons;
-
 @property (nonatomic, assign) BOOL isPerspective; //是否开启透视
 
 @end
@@ -68,24 +66,12 @@ typedef NS_ENUM(NSInteger, buttonTag) {
     
     if (isAnimating) {
         self.m34Switch.enabled = NO;
-        for (UIButton *button in self.buttons) {
-            button.enabled = NO;
-        }
     } else {
         self.m34Switch.enabled = YES;
-        for (UIButton *button in self.buttons) {
-            button.enabled = YES;
-        }
     }
 }
 
-- (NSMutableArray *)buttons
-{
-    if (!_buttons) {
-        _buttons = [NSMutableArray array];
-    }
-    return _buttons;
-}
+
 
 #pragma mark - subViews
 

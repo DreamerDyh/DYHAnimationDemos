@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) BOOL isAnimating; //是否正在执行动画
 
+@property (nonatomic, strong) NSMutableArray *buttons; //操作buttons
+
 @end
