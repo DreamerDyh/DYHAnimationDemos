@@ -20,6 +20,8 @@
 
 @property (nonatomic, weak) DYHTipSwitchView *switchView;
 
+@property (nonatomic, weak) DYHActiveButton *takeOffButton;
+
 @end
 
 @implementation DYHPaperPlaneViewController
@@ -70,6 +72,7 @@
     [btn addTarget:self action:@selector(takeOff) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     [self.buttons addObject:btn];
+    self.takeOffButton = btn;
     
     [btn sizeToFit];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
