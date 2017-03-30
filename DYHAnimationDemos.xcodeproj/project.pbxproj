@@ -12,6 +12,7 @@
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
 		BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */; };
 		BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */; };
+		BBA330561E8CFDBD00A446BF /* DYHLiquidMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */; };
 		BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA621151E8217DF00C32540 /* DYHActiveButton.m */; };
 		BBB291111E7797800068ACF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291101E7797800068ACF8 /* main.m */; };
 		BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911B1E7797800068ACF8 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		BBB291351E7797800068ACF8 /* DYHAnimationDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291341E7797800068ACF8 /* DYHAnimationDemosUITests.m */; };
 		BBB291481E7799290068ACF8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291471E7799290068ACF8 /* RootViewController.m */; };
 		BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB2914B1E7799630068ACF8 /* AppDelegate.m */; };
+		BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC461C01E8D1FC400C53863 /* DYHLiquidView.m */; };
 		BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */; };
 		BF809380B08DF8D22FDB54AE /* libPods-DYHAnimationDemos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHPaperPlaneViewController.m; sourceTree = "<group>"; };
 		BB940AE91E8A519900A80A3D /* DYHTipSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHTipSwitchView.h; sourceTree = "<group>"; };
 		BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHTipSwitchView.m; sourceTree = "<group>"; };
+		BBA330541E8CFDBD00A446BF /* DYHLiquidMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHLiquidMenuViewController.h; sourceTree = "<group>"; };
+		BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHLiquidMenuViewController.m; sourceTree = "<group>"; };
 		BBA621141E8217DF00C32540 /* DYHActiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHActiveButton.h; sourceTree = "<group>"; };
 		BBA621151E8217DF00C32540 /* DYHActiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHActiveButton.m; sourceTree = "<group>"; };
 		BBB2910C1E7797800068ACF8 /* DYHAnimationDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYHAnimationDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +76,8 @@
 		BBB291471E7799290068ACF8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		BBB2914A1E7799630068ACF8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBB2914B1E7799630068ACF8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBC461BF1E8D1FC400C53863 /* DYHLiquidView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHLiquidView.h; sourceTree = "<group>"; };
+		BBC461C01E8D1FC400C53863 /* DYHLiquidView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHLiquidView.m; sourceTree = "<group>"; };
 		BBE106ED1E80CA820072C8EB /* DYHEasy3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHEasy3DViewController.h; sourceTree = "<group>"; };
 		BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHEasy3DViewController.m; sourceTree = "<group>"; };
 		C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +133,18 @@
 			path = Classes/Demo2_PaperPlane;
 			sourceTree = SOURCE_ROOT;
 		};
+		BBA330531E8CFD7100A446BF /* Demo3_LiquidMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BBA330541E8CFDBD00A446BF /* DYHLiquidMenuViewController.h */,
+				BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */,
+				BBC461BF1E8D1FC400C53863 /* DYHLiquidView.h */,
+				BBC461C01E8D1FC400C53863 /* DYHLiquidView.m */,
+			);
+			name = Demo3_LiquidMenu;
+			path = Classes/Demo3_LiquidMenu;
+			sourceTree = SOURCE_ROOT;
+		};
 		BBB291031E77977F0068ACF8 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +170,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBA330531E8CFD7100A446BF /* Demo3_LiquidMenu */,
 				BB940AE11E89FFB500A80A3D /* Demo2_PaperPlane */,
 				BBE106EC1E80CA660072C8EB /* Demo1_Easy3D */,
 				BBB490FF1E77C07300AA54D0 /* BaseComponents */,
@@ -514,11 +533,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA330561E8CFDBD00A446BF /* DYHLiquidMenuViewController.m in Sources */,
 				BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */,
 				BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */,
 				BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
+				BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */,
 				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,
