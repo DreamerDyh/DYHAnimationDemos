@@ -10,14 +10,12 @@
 
 #import "DYHEasy3DViewController.h"
 #import "DYHPaperPlaneViewController.h"
-#import "DYHDraggableBadgeViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
 typedef NS_ENUM(NSInteger, rowTags) {
     demo1_easy3d = 101,
     demo2_papaerPlane,
-    demo3_draggableBadge,
 };
 
 @interface RootViewController ()
@@ -57,8 +55,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
         _demos = @{
                    @(demo1_easy3d):[DYHEasy3DViewController class],
                    @(demo2_papaerPlane):[DYHPaperPlaneViewController class],
-                   @(demo3_draggableBadge):[DYHDraggableBadgeViewController class]
-                   };
+                  };
     }
     return _demos;
 }
@@ -117,9 +114,6 @@ typedef NS_ENUM(NSInteger, rowTags) {
             break;
         case demo2_papaerPlane:
             text = @"Demo2-纸飞机";
-            break;
-        case demo3_draggableBadge:
-            text = @"Demo3-拖曳小红点";
             break;
         default:
             text = @"404";
