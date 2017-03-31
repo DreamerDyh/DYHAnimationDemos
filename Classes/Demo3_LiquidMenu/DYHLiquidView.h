@@ -48,6 +48,11 @@ typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
  */
 @property (nonatomic, weak) UIView *contentView;
 
+/*
+ *iconName
+ */
+@property (nonatomic, strong) NSString *iconName;
+
 - (instancetype)initWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
 
 + (instancetype)liquidViewWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;

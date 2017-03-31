@@ -32,10 +32,24 @@ typedef NS_ENUM(NSUInteger, LiquidTag) {
     
     //将根view添加好
     DYHLiquidView* liquidView = [self.liquidViews firstObject];
+    liquidView.iconName = @"search_icon";
     liquidView.tag= LiquidTagRoot;
     liquidView.delegate = self;
     [self.view addSubview:liquidView];
     liquidView.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height*0.7);
+    
+    DYHLiquidView *view1 = [self.liquidViews objectAtIndex:1];
+    view1.iconName = @"push_icon";
+    view1.tag = LiquidTag1;
+    DYHLiquidView *view2 = [self.liquidViews objectAtIndex:2];
+    view2.iconName = @"address_icon";
+    view2.tag = LiquidTag2;
+    DYHLiquidView *view3 = [self.liquidViews objectAtIndex:3];
+    view3.iconName = @"team_icon";
+    view3.tag = LiquidTag3;
+    DYHLiquidView *view4 = [self.liquidViews objectAtIndex:4];
+    view4.iconName = @"send_icon";
+    view4.tag = LiquidTag4;
 
 }
 
@@ -53,14 +67,10 @@ typedef NS_ENUM(NSUInteger, LiquidTag) {
 {
     if (liquidView.tag == LiquidTagRoot) {
         DYHLiquidView *view1 = [self.liquidViews objectAtIndex:1];
-        view1.tag = LiquidTag1;
         DYHLiquidView *view2 = [self.liquidViews objectAtIndex:2];
-        view2.tag = LiquidTag2;
         DYHLiquidView *view3 = [self.liquidViews objectAtIndex:3];
-        view3.tag = LiquidTag3;
         DYHLiquidView *view4 = [self.liquidViews objectAtIndex:4];
-        view4.tag = LiquidTag4;
-        
+   
         if (self.isPushing) {
             //pop
             [view3 popPushedViewWithDelay:0.f];

@@ -15,6 +15,8 @@
 
 @property (nonatomic, weak) CAShapeLayer *shapeLayer;
 
+@property (nonatomic, weak) UIImageView *iconView;
+
 @end
 
 @implementation DYHLiquidView
@@ -54,6 +56,14 @@
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.equalTo(self);
     }];
+    
+    //添加一个iconView
+    UIImageView* iconView = [UIImageView new];
+    [self.contentView addSubview:iconView];
+    self.iconView = iconView;
+    [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.centerY.equalTo(self.contentView);
+    }];
 }
 
 #pragma mark - Setter/ Getter
@@ -70,6 +80,12 @@
     [super setFrame:frame];
     self.layer.cornerRadius = self.bounds.size.height / 2.f;
     self.contentView.layer.cornerRadius = self.bounds.size.height / 2.f;
+}
+
+- (void)setIconName:(NSString *)iconName
+{
+    self.iconView.image = [UIImage imageNamed:iconName];
+    [self.iconView sizeToFit];
 }
 
 #pragma mark - touches
