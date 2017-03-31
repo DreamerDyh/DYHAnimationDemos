@@ -81,7 +81,7 @@
     }
 }
 
-#pragma mark - push
+#pragma mark - push / pop
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion
 {
@@ -102,7 +102,7 @@
     self.pushedView = view;
     
     [self beforeAnimation];
-    [UIView animateWithDuration:0.3f delay:delay usingSpringWithDamping:0.75f initialSpringVelocity:0.f options:0 animations:^{
+    [UIView animateWithDuration:0.4f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
         view.center = CGPointMake(selfCenter.x, selfCenter.y + translationY);
     } completion:^(BOOL finished) {
         if (finished) {
@@ -114,6 +114,22 @@
     }];
 }
 
+- (void)popPushedViewWithDelay:(CGFloat)delay
+{
+    if (self.pushedView) {
+        CGPoint selfCenter = [self convertPoint:self.center fromView:self.superview];
+        [UIView animateWithDuration:0.4f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
+            self.pushedView.center = selfCenter;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [self.pushedView removeFromSuperview];
+                self.pushedView = nil;
+            }
+        }];
+    }
+}
+
+#pragma mark - 绘制相关
 
 - (void)beforeAnimation
 {
@@ -135,7 +151,7 @@
 
 - (void)displayLinkAction:(CADisplayLink *)displayLink
 {
-    NSLog(@"%@",[NSValue valueWithCGPoint:self.pushedView.layer.presentationLayer.position]);
+    //NSLog(@"%@",[NSValue valueWithCGPoint:self.pushedView.layer.presentationLayer.position]);
     [self drawLiquidToPushedView:self.pushedView];
 }
 

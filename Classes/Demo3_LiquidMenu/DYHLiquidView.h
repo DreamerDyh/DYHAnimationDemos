@@ -28,12 +28,24 @@ typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
 
 @interface DYHLiquidView : UIView
 
+/*
+ * 已经push出来的View
+ */
 @property (nonatomic, weak) DYHLiquidView *pushedView;
 
+/*
+ * 代理
+ */
 @property (nonatomic, weak) id<DYHLiquidViewDelegate> delegate;
 
+/*
+ * 垂直偏移量 <0向上 >0向下
+ */
 @property (nonatomic, assign) CGFloat defaultTranslationY;
 
+/*
+ * 装载内容的View
+ */
 @property (nonatomic, weak) UIView *contentView;
 
 - (instancetype)initWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
@@ -41,5 +53,7 @@ typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
 + (instancetype)liquidViewWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion;
+
+- (void)popPushedViewWithDelay:(CGFloat)delay;
 
 @end
