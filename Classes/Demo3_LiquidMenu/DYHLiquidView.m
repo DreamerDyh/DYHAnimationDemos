@@ -47,7 +47,7 @@
 
 - (void)setUpDatas
 {
-    self.defaultTranslationY = -64.f;
+    self.defaultTranslationY = -70.f;
     
     //添加一个contentView
     UIView* contentView = [UIView new];
@@ -118,7 +118,7 @@
     self.pushedView = view;
     
     [self beforeAnimation];
-    [UIView animateWithDuration:0.4f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
+    [UIView animateWithDuration:0.5f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
         view.center = CGPointMake(selfCenter.x, selfCenter.y + translationY);
     } completion:^(BOOL finished) {
         if (finished) {
