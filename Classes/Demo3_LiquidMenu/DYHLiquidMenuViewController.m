@@ -9,6 +9,14 @@
 #import "DYHLiquidMenuViewController.h"
 #import "DYHLiquidView.h"
 
+typedef NS_ENUM(NSUInteger, LiquidTag) {
+    LiquidTagRoot = 101,
+    LiquidTag1,
+    LiquidTag2,
+    LiquidTag3,
+    LiquidTag4,
+};
+
 @interface DYHLiquidMenuViewController ()<DYHLiquidViewDelegate>
 
 @property (nonatomic, strong) NSArray *liquidViews;
@@ -24,6 +32,7 @@
     
     //将根view添加好
     DYHLiquidView* liquidView = [self.liquidViews firstObject];
+    liquidView.tag= LiquidTagRoot;
     liquidView.delegate = self;
     [self.view addSubview:liquidView];
     liquidView.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height*0.7);
@@ -42,27 +51,32 @@
 
 - (void)liquidViewWasClicked:(DYHLiquidView *)liquidView
 {
-    DYHLiquidView *view1 = [self.liquidViews objectAtIndex:1];
-    DYHLiquidView *view2 = [self.liquidViews objectAtIndex:2];
-    DYHLiquidView *view3 = [self.liquidViews objectAtIndex:3];
-    DYHLiquidView *view4 = [self.liquidViews objectAtIndex:4];
-    
-    if (self.isPushing) {
-        //pop
-        [view3 popPushedViewWithDelay:0.f];
-        [view2 popPushedViewWithDelay:0.1f];
-        [view1 popPushedViewWithDelay:0.2f];
-        [liquidView popPushedViewWithDelay:0.3f];
-        self.isPushing = NO;
-    } else {
-        //push
-        [liquidView pushLiquidView:view1 delay:0.f completion:nil];
-        [view1 pushLiquidView:view2 delay:0.1f completion:nil];
-        [view2 pushLiquidView:view3 delay:0.2f completion:nil];
-        [view3 pushLiquidView:view4 delay:0.3f completion:nil];
-        self.isPushing = YES;
+    if (liquidView.tag == LiquidTagRoot) {
+        DYHLiquidView *view1 = [self.liquidViews objectAtIndex:1];
+        view1.tag = LiquidTag1;
+        DYHLiquidView *view2 = [self.liquidViews objectAtIndex:2];
+        view2.tag = LiquidTag2;
+        DYHLiquidView *view3 = [self.liquidViews objectAtIndex:3];
+        view3.tag = LiquidTag3;
+        DYHLiquidView *view4 = [self.liquidViews objectAtIndex:4];
+        view4.tag = LiquidTag4;
+        
+        if (self.isPushing) {
+            //pop
+            [view3 popPushedViewWithDelay:0.f];
+            [view2 popPushedViewWithDelay:0.1f];
+            [view1 popPushedViewWithDelay:0.2f];
+            [liquidView popPushedViewWithDelay:0.3f];
+            self.isPushing = NO;
+        } else {
+            //push
+            [liquidView pushLiquidView:view1 delay:0.f completion:nil];
+            [view1 pushLiquidView:view2 delay:0.1f completion:nil];
+            [view2 pushLiquidView:view3 delay:0.2f completion:nil];
+            [view3 pushLiquidView:view4 delay:0.3f completion:nil];
+            self.isPushing = YES;
+        }
     }
-    
 }
 
 @end
