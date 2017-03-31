@@ -18,23 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    DYHLiquidView* liquidView = [DYHLiquidView new];
+    DYHLiquidView* liquidView = [DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor];
     liquidView.delegate = self;
-    liquidView.backgroundColor = [UIColor redColor];
     [self.view addSubview:liquidView];
-    
-    [liquidView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-    }];
+    liquidView.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height*0.7);
+
 }
 
 #pragma mark - DYHLiquidViewDelegate
 
 - (void)liquidViewWasClicked:(DYHLiquidView *)liquidView
 {
-    
+    DYHLiquidView *view = [DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor];
+    [liquidView pushLiquidView:view completion:^(DYHLiquidView *pushedView) {
+        [pushedView pushLiquidView:[DYHLiquidView liquidViewWithQuadWidth:30.f contentBgColor:LiquidColor] completion:nil];
+    }];
 }
 
 @end

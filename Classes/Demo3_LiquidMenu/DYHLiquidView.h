@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYHCircle.h"
+
+#define LiquidColor RGBCOLOR(146, 167, 248)
+
+/*
+ * 暂不支持autoLayout
+ */
+
 @class DYHLiquidView;
 
-typedef void(^DYHLiquidViewCompletionBlock)(UIView *pushedView);
+typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
 
 @protocol DYHLiquidViewDelegate <NSObject>
 
@@ -20,11 +28,18 @@ typedef void(^DYHLiquidViewCompletionBlock)(UIView *pushedView);
 
 @interface DYHLiquidView : UIView
 
-//push出来的任意View
-@property (nonatomic, strong) UIView *pushedView;
+@property (nonatomic, weak) DYHLiquidView *pushedView;
 
 @property (nonatomic, weak) id<DYHLiquidViewDelegate> delegate;
 
-- (void)pushView:(UIView *)view WithCompletion:(DYHLiquidViewCompletionBlock)completion;
+@property (nonatomic, assign) CGFloat defaultTranslationY;
+
+@property (nonatomic, weak) UIView *contentView;
+
+- (instancetype)initWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
+
++ (instancetype)liquidViewWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
+
+- (void)pushLiquidView:(DYHLiquidView *)view completion:(DYHLiquidViewCompletionBlock)completion;
 
 @end
