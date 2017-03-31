@@ -83,12 +83,12 @@
 
 #pragma mark - push
 
-- (void)pushLiquidView:(DYHLiquidView *)view completion:(DYHLiquidViewCompletionBlock)completion
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion
 {
-    [self pushLiquidView:view translationY:self.defaultTranslationY completion:completion];
+    [self pushLiquidView:view delay:delay translationY:self.defaultTranslationY completion:completion];
 }
 
-- (void)pushLiquidView:(DYHLiquidView *)view translationY:(CGFloat)translationY completion:(DYHLiquidViewCompletionBlock)completion
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay translationY:(CGFloat)translationY completion:(DYHLiquidViewCompletionBlock)completion
 {
     if (!self.superview || self.pushedView || view.superview || view.bounds.size.width <= 0 || view.bounds.size.height <= 0) {
         //满足计算条件才进行操作
@@ -102,7 +102,7 @@
     self.pushedView = view;
     
     [self beforeAnimation];
-    [UIView animateWithDuration:0.8f delay:0.f usingSpringWithDamping:0.9f initialSpringVelocity:0.f options:0 animations:^{
+    [UIView animateWithDuration:0.3f delay:delay usingSpringWithDamping:0.75f initialSpringVelocity:0.f options:0 animations:^{
         view.center = CGPointMake(selfCenter.x, selfCenter.y + translationY);
     } completion:^(BOOL finished) {
         if (finished) {

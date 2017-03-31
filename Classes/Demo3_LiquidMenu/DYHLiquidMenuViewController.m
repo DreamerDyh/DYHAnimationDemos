@@ -30,9 +30,8 @@
 - (void)liquidViewWasClicked:(DYHLiquidView *)liquidView
 {
     DYHLiquidView *view = [DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor];
-    [liquidView pushLiquidView:view completion:^(DYHLiquidView *pushedView) {
-        [pushedView pushLiquidView:[DYHLiquidView liquidViewWithQuadWidth:30.f contentBgColor:LiquidColor] completion:nil];
-    }];
+    [liquidView pushLiquidView:view delay:0 completion:nil];
+    [view pushLiquidView:[DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:[UIColor redColor]] delay:0.1f completion:nil];
 }
 
 @end

@@ -40,6 +40,6 @@ typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
 
 + (instancetype)liquidViewWithQuadWidth:(CGFloat)quadWidth contentBgColor:(UIColor *)contentBgColor;
 
-- (void)pushLiquidView:(DYHLiquidView *)view completion:(DYHLiquidViewCompletionBlock)completion;
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion;
 
 @end
