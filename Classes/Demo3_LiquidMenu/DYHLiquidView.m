@@ -118,7 +118,7 @@
     self.pushedView = view;
     
     [self beforeAnimation];
-    [UIView animateWithDuration:0.5f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
+    [UIView animateWithDuration:0.6f delay:delay usingSpringWithDamping:0.65f initialSpringVelocity:0.f options:0 animations:^{
         view.center = CGPointMake(selfCenter.x, selfCenter.y + translationY);
     } completion:^(BOOL finished) {
         if (finished) {
@@ -134,7 +134,7 @@
 {
     if (self.pushedView) {
         CGPoint selfCenter = [self convertPoint:self.center fromView:self.superview];
-        [UIView animateWithDuration:0.4f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
+        [UIView animateWithDuration:0.6f delay:delay usingSpringWithDamping:0.7f initialSpringVelocity:0.f options:0 animations:^{
             self.pushedView.center = selfCenter;
         } completion:^(BOOL finished) {
             if (finished) {
