@@ -41,7 +41,11 @@
 
 - (void)animateSubmitButtonWasClicked:(DYHAnimateSubmitButton *)sender
 {
-    [sender doAnimationCompletion:nil];
+    self.isAnimating = YES;
+    __weak typeof(self) weakSelf = self;
+    [sender doAnimationCompletion:^{
+        weakSelf.isAnimating = NO;
+    }];
 }
 
 @end

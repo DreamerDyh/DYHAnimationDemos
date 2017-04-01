@@ -26,6 +26,8 @@
 
 @property (nonatomic, assign) BOOL isAnimating;
 
+@property (nonatomic, strong) DYHAnimateSubmitButtonCompletion completion;
+
 @end
 
 @implementation DYHAnimateSubmitButton
@@ -134,6 +136,7 @@
     }
     
     self.isAnimating = YES;
+    self.completion = completion;
     
     [UIView animateWithDuration:0.1 animations:^{
         self.titleLabel.alpha = 0.f;
@@ -233,6 +236,10 @@
                     self.finishIconImageView.alpha = 0.f;
                 } completion:^(BOOL finished) {
                     self.isAnimating = NO;
+                    if (self.completion) {
+                        self.completion();
+                    }
+                    self.completion = nil;
                 }];
                 
             }
