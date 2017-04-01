@@ -11,6 +11,7 @@
 #import "DYHEasy3DViewController.h"
 #import "DYHPaperPlaneViewController.h"
 #import "DYHLiquidMenuViewController.h"
+#import "DYHSubmitButtonViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
@@ -18,6 +19,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
     demo1_easy3d = 101,
     demo2_papaerPlane,
     demo3_liquidMenu,
+    demo4_submitButton,
 };
 
 @interface RootViewController ()
@@ -57,7 +59,8 @@ typedef NS_ENUM(NSInteger, rowTags) {
         _demos = @{
                    @(demo1_easy3d):[DYHEasy3DViewController class],
                    @(demo2_papaerPlane):[DYHPaperPlaneViewController class],
-                   @(demo3_liquidMenu):[DYHLiquidMenuViewController class]
+                   @(demo3_liquidMenu):[DYHLiquidMenuViewController class],
+                   @(demo4_submitButton):[DYHSubmitButtonViewController class]
                   };
     }
     return _demos;
@@ -120,6 +123,9 @@ typedef NS_ENUM(NSInteger, rowTags) {
             break;
         case demo3_liquidMenu:
             text = @"Demo3-液态菜单";
+            break;
+        case demo4_submitButton:
+            text = @"Demo4-提交按钮";
             break;
         default:
             text = @"404";
