@@ -7,9 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #define DYHAnimateSubmitButtonColor RGBCOLOR(25, 204, 149)
 
-@interface DYHAnimateSubmitButton : UIButton
+@class DYHAnimateSubmitButton;
+
+typedef void(^DYHAnimateSubmitButtonCompletion)();
+
+@protocol DYHAnimateSubmitButtonDelegate <NSObject>
+
+- (void)animateSubmitButtonWasClicked:(DYHAnimateSubmitButton *)sender;
+
+@end
+
+@interface DYHAnimateSubmitButton : UIView
+
+@property (nonatomic, weak) UILabel *titleLabel;
+
+@property (nonatomic, weak) id<DYHAnimateSubmitButtonDelegate> delegate;
+
+- (void)doAnimationCompletion:(DYHAnimateSubmitButtonCompletion)completion;
 
 @end

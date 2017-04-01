@@ -9,7 +9,7 @@
 #import "DYHSubmitButtonViewController.h"
 #import "DYHAnimateSubmitButton.h"
 
-@interface DYHSubmitButtonViewController ()
+@interface DYHSubmitButtonViewController ()<DYHAnimateSubmitButtonDelegate>
 
 @property (nonatomic, weak) DYHAnimateSubmitButton *submitButton;
 
@@ -29,18 +29,19 @@
 - (void)setUpSubviews
 {
     DYHAnimateSubmitButton *submitButtton = [DYHAnimateSubmitButton new];
-    [submitButtton addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
-    [submitButtton setTitle:@"submit" forState:UIControlStateNormal];
+    submitButtton.delegate = self;
+    submitButtton.titleLabel.text = @"submit";
     submitButtton.center = CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f);
     submitButtton.bounds = CGRectMake(0, 0, 150.f, 45.f);
     [self.view addSubview:submitButtton];
     self.submitButton = submitButtton;
 }
 
-#pragma mark - 回调
+#pragma mark - DYHAnimateSubmitButtonDelegate
 
-- (void)submit:(UIButton *)sender
+- (void)animateSubmitButtonWasClicked:(DYHAnimateSubmitButton *)sender
 {
-
+    [sender doAnimationCompletion:nil];
 }
+
 @end
