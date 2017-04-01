@@ -32,7 +32,7 @@
     submitButtton.delegate = self;
     submitButtton.titleLabel.text = @"submit";
     submitButtton.center = CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f);
-    submitButtton.bounds = CGRectMake(0, 0, 150.f, 45.f);
+    submitButtton.bounds = CGRectMake(0, 0, 200.f, 50.f);
     [self.view addSubview:submitButtton];
     self.submitButton = submitButtton;
 }

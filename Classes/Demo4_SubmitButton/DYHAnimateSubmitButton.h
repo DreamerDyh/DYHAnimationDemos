@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #define DYHAnimateSubmitButtonColor RGBCOLOR(25, 204, 149)
+#define DYHAnimateSubmitButtonGrayColor RGBCOLOR(187, 187, 187)
 
 @class DYHAnimateSubmitButton;
 
