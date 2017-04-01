@@ -1,0 +1,15 @@
+//
+//  DYHAnimateSubmitButton.h
+//  DYHAnimationDemos
+//
+//  Created by Dai Yunhao on 17/4/1.
+//  Copyright © 2017年 Dai Yunhao. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#define DYHAnimateSubmitButtonColor RGBCOLOR(25, 204, 149)
+
+@interface DYHAnimateSubmitButton : UIButton
+
+@end

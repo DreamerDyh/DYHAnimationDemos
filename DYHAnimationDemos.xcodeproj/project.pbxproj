@@ -25,6 +25,7 @@
 		BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC461C31E8D26E200C53863 /* DYHCircle.m */; };
 		BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */; };
 		BBEE995D1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEE995C1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m */; };
+		BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEE995F1E8F72AA00A1E434 /* DYHAnimateSubmitButton.m */; };
 		BF809380B08DF8D22FDB54AE /* libPods-DYHAnimationDemos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHEasy3DViewController.m; sourceTree = "<group>"; };
 		BBEE995B1E8F70FD00A1E434 /* DYHSubmitButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHSubmitButtonViewController.h; sourceTree = "<group>"; };
 		BBEE995C1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHSubmitButtonViewController.m; sourceTree = "<group>"; };
+		BBEE995E1E8F72AA00A1E434 /* DYHAnimateSubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHAnimateSubmitButton.h; sourceTree = "<group>"; };
+		BBEE995F1E8F72AA00A1E434 /* DYHAnimateSubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHAnimateSubmitButton.m; sourceTree = "<group>"; };
 		C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D470F650B96A4CF78AFEE31E /* Pods-DYHAnimationDemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5F0796DF3908D2040C9C196 /* Pods-DYHAnimationDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 			children = (
 				BBEE995B1E8F70FD00A1E434 /* DYHSubmitButtonViewController.h */,
 				BBEE995C1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m */,
+				BBEE995E1E8F72AA00A1E434 /* DYHAnimateSubmitButton.h */,
+				BBEE995F1E8F72AA00A1E434 /* DYHAnimateSubmitButton.m */,
 			);
 			name = Demo4_SubmitButton;
 			path = Classes/Demo4_SubmitButton;
@@ -561,6 +566,7 @@
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
 				BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */,
+				BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */,
 				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,
