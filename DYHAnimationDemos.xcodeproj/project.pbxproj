@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25559BA09B7583100E2696DC /* libPods-DYHAnimationDemosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C8B3A324E44509E9B3878 /* libPods-DYHAnimationDemosUITests.a */; };
 		317CB68DF630FC10EC45AF83 /* libPods-DYHAnimationDemosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */; };
+		BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */; };
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
 		BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */; };
 		BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */; };
@@ -53,6 +54,8 @@
 		AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40F1D821F119623730138CA /* Pods-DYHAnimationDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemos/Pods-DYHAnimationDemos.release.xcconfig"; sourceTree = "<group>"; };
 		B69E6C2538A696147AA4491E /* Pods-DYHAnimationDemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosUITests/Pods-DYHAnimationDemosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BB2005911E94CBB600C4161D /* DYHHelloAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHHelloAnimationViewController.h; sourceTree = "<group>"; };
+		BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHHelloAnimationViewController.m; sourceTree = "<group>"; };
 		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
 		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
 		BB80D6441E779A6400399A42 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -132,6 +135,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB2005901E94CB9B00C4161D /* Demo5_HelloAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				BB2005911E94CBB600C4161D /* DYHHelloAnimationViewController.h */,
+				BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */,
+			);
+			name = Demo5_HelloAnimation;
+			path = Classes/Demo5_HelloAnimation;
+			sourceTree = SOURCE_ROOT;
+		};
 		BB940AE11E89FFB500A80A3D /* Demo2_PaperPlane */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +194,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BB2005901E94CB9B00C4161D /* Demo5_HelloAnimation */,
 				BBEE995A1E8F70C900A1E434 /* Demo4_SubmitButton */,
 				BBA330531E8CFD7100A446BF /* Demo3_LiquidMenu */,
 				BB940AE11E89FFB500A80A3D /* Demo2_PaperPlane */,
@@ -565,6 +579,7 @@
 				BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
+				BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */,
 				BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */,
 				BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */,
 				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
