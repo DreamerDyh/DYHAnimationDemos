@@ -59,6 +59,8 @@ typedef void(^DYHLiquidViewCompletionBlock)(DYHLiquidView *pushedView);
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion;
 
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay duration:(CGFloat)duration completion:(DYHLiquidViewCompletionBlock)completion;
+
 - (void)popPushedViewWithDelay:(CGFloat)delay;
 
 @end
