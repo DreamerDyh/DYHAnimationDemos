@@ -101,15 +101,17 @@
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion
 {
-    [self pushLiquidView:view delay:delay translationY:self.defaultTranslationY completion:completion];
+    [self pushLiquidView:view delay:delay duration:0.6f translationY:self.defaultTranslationY completion:completion];
 }
 
-- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay translationY:(CGFloat)translationY completion:(DYHLiquidViewCompletionBlock)completion
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay duration:(CGFloat)duration translationY:(CGFloat)translationY completion:(DYHLiquidViewCompletionBlock)completion
 {
     if (!self.superview || self.pushedView || view.superview || view.bounds.size.width <= 0 || view.bounds.size.height <= 0) {
         //满足计算条件才进行操作
         return;
     }
+    
+    self.defaultTranslationY = translationY;
     
     [self insertSubview:view belowSubview:self.contentView];
     
@@ -118,7 +120,7 @@
     self.pushedView = view;
     
     [self beforeAnimation];
-    [UIView animateWithDuration:0.6f delay:delay usingSpringWithDamping:0.65f initialSpringVelocity:0.f options:0 animations:^{
+    [UIView animateWithDuration:duration delay:delay usingSpringWithDamping:0.65f initialSpringVelocity:0.f options:0 animations:^{
         view.center = CGPointMake(selfCenter.x, selfCenter.y + translationY);
     } completion:^(BOOL finished) {
         if (finished) {
@@ -130,7 +132,7 @@
     }];
 }
 
-- (void)popPushedViewWithDelay:(CGFloat)delay
+-(void)popPushedViewWithDelay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion
 {
     if (self.pushedView) {
         CGPoint selfCenter = [self convertPoint:self.center fromView:self.superview];
@@ -140,9 +142,17 @@
             if (finished) {
                 [self.pushedView removeFromSuperview];
                 self.pushedView = nil;
+                if (completion) {
+                    completion(self);
+                }
             }
         }];
     }
+}
+
+- (void)popPushedViewWithDelay:(CGFloat)delay
+{
+    [self popPushedViewWithDelay:delay completion:nil];
 }
 
 #pragma mark - 绘制相关
