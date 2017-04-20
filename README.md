@@ -17,7 +17,7 @@ An easy demo to make a papaer plane by `CAKeyframeAnimation`.
 
 ![demo03](./DescriptionImgs/demo03.gif)
 
-A demo to make a cool liquid menu.
+A demo to make a cool liquid menu.(**new version on 2017/04/20 ^ ^**)
 
 # demo4 - SubmitButton
 
@@ -31,5 +31,8 @@ A demo to make a cool submit button.
 
 A demo to make a fantastic **“hello”**.
 
+## demo6 - Slow Liquid Ball
 
+![demo06](./DescriptionImgs/demo06.gif)
 
+use the same tech as demo03, a cool liquid ball.
