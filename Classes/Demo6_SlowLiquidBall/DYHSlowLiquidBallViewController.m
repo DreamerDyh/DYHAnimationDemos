@@ -43,7 +43,7 @@
     }
     if (!self.pushed) {
         self.isAnimating = YES;
-         [liquidView pushLiquidView:self.childLiquidView delay:0.f duration:4.f translationY:-200.f completion:^(DYHLiquidView *pushedView) {
+         [liquidView pushLiquidView:self.childLiquidView delay:0.f duration:3.f translationY:-300.f completion:^(DYHLiquidView *pushedView) {
              self.isAnimating = NO;
              self.pushed = YES;
          }];

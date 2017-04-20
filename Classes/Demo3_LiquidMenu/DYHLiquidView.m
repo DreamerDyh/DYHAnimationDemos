@@ -185,16 +185,17 @@
 {
     //每一帧刷新时去绘制粘连部分
     UIBezierPath *path = [UIBezierPath bezierPath];
-    //自身的圆
+    
     CGPoint selfCenter = [self convertPoint:self.center fromView:self.superview];
-    DYHCircle *selfCircle = [DYHCircle circleWithCenter:selfCenter radius:self.pushedView.bounds.size.width/2.f];
-    //[self drawCircle:selfCircle onPath:path];
+    CGPoint pushedCenter = self.pushedView.layer.presentationLayer.position;
+    CGFloat pushingProgress = fabs(selfCenter.y-pushedCenter.y) / fabs(self.defaultTranslationY);
     
     //pushed端的圆
-    CGPoint pushedCenter = self.pushedView.layer.presentationLayer.position;
     DYHCircle *pushedCircle = [DYHCircle circleWithCenter:pushedCenter radius:self.pushedView.bounds.size.width/2.f];
-    //[self drawCircle:pushedCircle onPath:path];
     
+    //自身端的圆
+    DYHCircle *selfCircle = [DYHCircle circleWithCenter:selfCenter radius:(self.pushedView.bounds.size.width/2.f) * MAX(0.6, 1-pushingProgress)];
+ 
     //画连接部分
     BOOL successDraw = [self drawLiquidFromCircle:selfCircle toCircle:pushedCircle onPath:path];
     
@@ -204,20 +205,29 @@
         if (!self.shapeLayer) {
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             shapeLayer.fillColor = self.contentView.backgroundColor.CGColor;
-            //shapeLayer.lineWidth = 1.f;
-            //shapeLayer.strokeColor = [UIColor greenColor].CGColor;
             [self.layer insertSublayer:shapeLayer atIndex:0];
             self.shapeLayer = shapeLayer;
         }
-        self.shapeLayer.path = path.CGPath;
         
-        if (fabs(selfCenter.y-pushedCenter.y) > 0.99 * fabs(self.defaultTranslationY)) {
-            [self.shapeLayer removeFromSuperlayer];
-            self.shapeLayer = nil;
+        if (pushingProgress > 0.99) {
+            UIBezierPath *finalPath = [UIBezierPath bezierPath];
+            [self drawCircle:pushedCircle onPath:finalPath];
+            [CATransaction begin];
+            self.shapeLayer.path = finalPath.CGPath;
+            [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.3 :0.5 :0.9 :0.5]];
+            [CATransaction setCompletionBlock:^{
+                self.shapeLayer.hidden = YES;
+            }];
+            [CATransaction commit];
+        } else {
+            self.shapeLayer.path = path.CGPath;
+            if (self.shapeLayer.hidden) {
+                self.shapeLayer.hidden = NO;
+            }
         }
+        
     } else {
-        [self.shapeLayer removeFromSuperlayer];
-        self.shapeLayer = nil;
+        self.shapeLayer.hidden = YES;
     }
 }
 
