@@ -47,7 +47,7 @@
 
 - (void)setUpDatas
 {
-    self.defaultTranslationY = -70.f;
+    self.defaultTranslationY = -60.f;
     
     //添加一个contentView
     UIView* contentView = [UIView new];
@@ -101,7 +101,12 @@
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay completion:(DYHLiquidViewCompletionBlock)completion
 {
-    [self pushLiquidView:view delay:delay duration:0.6f translationY:self.defaultTranslationY completion:completion];
+    [self pushLiquidView:view delay:delay duration:1.f translationY:self.defaultTranslationY completion:completion];
+}
+
+- (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay duration:(CGFloat)duration completion:(DYHLiquidViewCompletionBlock)completion
+{
+    [self pushLiquidView:view delay:delay duration:duration translationY:self.defaultTranslationY completion:completion];
 }
 
 - (void)pushLiquidView:(DYHLiquidView *)view delay:(CGFloat)delay duration:(CGFloat)duration translationY:(CGFloat)translationY completion:(DYHLiquidViewCompletionBlock)completion

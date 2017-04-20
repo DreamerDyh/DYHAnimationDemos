@@ -65,6 +65,10 @@ typedef NS_ENUM(NSUInteger, LiquidTag) {
 
 - (void)liquidViewWasClicked:(DYHLiquidView *)liquidView
 {
+    if (self.isAnimating) {
+        return;
+    }
+    
     if (liquidView.tag == LiquidTagRoot) {
         DYHLiquidView *view1 = [self.liquidViews objectAtIndex:1];
         DYHLiquidView *view2 = [self.liquidViews objectAtIndex:2];
@@ -73,18 +77,25 @@ typedef NS_ENUM(NSUInteger, LiquidTag) {
    
         if (self.isPushing) {
             //pop
+            self.isAnimating = YES;
             [view3 popPushedViewWithDelay:0.f];
             [view2 popPushedViewWithDelay:0.1f];
             [view1 popPushedViewWithDelay:0.2f];
-            [liquidView popPushedViewWithDelay:0.3f];
-            self.isPushing = NO;
+            [liquidView popPushedViewWithDelay:0.3f completion:^(DYHLiquidView *pushedView) {
+                self.isPushing = NO;
+                self.isAnimating = NO;
+            }];
         } else {
             //push
+            self.isAnimating = YES;
             [liquidView pushLiquidView:view1 delay:0.f completion:nil];
             [view1 pushLiquidView:view2 delay:0.1f completion:nil];
             [view2 pushLiquidView:view3 delay:0.2f completion:nil];
-            [view3 pushLiquidView:view4 delay:0.3f completion:nil];
-            self.isPushing = YES;
+            [view3 pushLiquidView:view4 delay:0.3f completion:^(DYHLiquidView *pushedView) {
+                self.isPushing = YES;
+                self.isAnimating = NO;
+            }];
+            
         }
     }
 }
