@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, LiquidTag) {
 - (NSArray *)liquidViews
 {
     if (!_liquidViews) {
-        _liquidViews = @[[DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:40.f contentBgColor:LiquidColor]];
+        _liquidViews = @[[DYHLiquidView liquidViewWithQuadWidth:60.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor],[DYHLiquidView liquidViewWithQuadWidth:50.f contentBgColor:LiquidColor]];
     }
     return _liquidViews;
 }

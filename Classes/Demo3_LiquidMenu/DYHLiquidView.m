@@ -47,7 +47,7 @@
 
 - (void)setUpDatas
 {
-    self.defaultTranslationY = -60.f;
+    self.defaultTranslationY = -70.f;
     
     //添加一个contentView
     UIView* contentView = [UIView new];
@@ -199,7 +199,7 @@
     DYHCircle *pushedCircle = [DYHCircle circleWithCenter:pushedCenter radius:self.pushedView.bounds.size.width/2.f];
     
     //自身端的圆
-    DYHCircle *selfCircle = [DYHCircle circleWithCenter:selfCenter radius:(self.pushedView.bounds.size.width/2.f) * MAX(0.6, 1-pushingProgress)];
+    DYHCircle *selfCircle = [DYHCircle circleWithCenter:selfCenter radius:(self.pushedView.bounds.size.width/2.f) * MAX(0.7, 1-pushingProgress)];
  
     //画连接部分
     BOOL successDraw = [self drawLiquidFromCircle:selfCircle toCircle:pushedCircle onPath:path];
