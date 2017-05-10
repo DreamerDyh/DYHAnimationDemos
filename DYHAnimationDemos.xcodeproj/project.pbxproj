@@ -10,6 +10,8 @@
 		25559BA09B7583100E2696DC /* libPods-DYHAnimationDemosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5C8B3A324E44509E9B3878 /* libPods-DYHAnimationDemosUITests.a */; };
 		317CB68DF630FC10EC45AF83 /* libPods-DYHAnimationDemosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9C306FEAEE36930CF4568B /* libPods-DYHAnimationDemosTests.a */; };
 		BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */; };
+		BB305CC01EC2F118001D23E3 /* DYHPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB305CBF1EC2F118001D23E3 /* DYHPageView.m */; };
+		BB305CC31EC2F13F001D23E3 /* DYHPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB305CC21EC2F13F001D23E3 /* DYHPageViewController.m */; };
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
 		BB6CBE181EA89892002DDA9B /* DYHSlowLiquidBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CBE171EA89892002DDA9B /* DYHSlowLiquidBallViewController.m */; };
 		BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */; };
@@ -57,6 +59,10 @@
 		B69E6C2538A696147AA4491E /* Pods-DYHAnimationDemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosUITests/Pods-DYHAnimationDemosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BB2005911E94CBB600C4161D /* DYHHelloAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHHelloAnimationViewController.h; sourceTree = "<group>"; };
 		BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHHelloAnimationViewController.m; sourceTree = "<group>"; };
+		BB305CBE1EC2F118001D23E3 /* DYHPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHPageView.h; sourceTree = "<group>"; };
+		BB305CBF1EC2F118001D23E3 /* DYHPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHPageView.m; sourceTree = "<group>"; };
+		BB305CC11EC2F13F001D23E3 /* DYHPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHPageViewController.h; sourceTree = "<group>"; };
+		BB305CC21EC2F13F001D23E3 /* DYHPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHPageViewController.m; sourceTree = "<group>"; };
 		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
 		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
 		BB6CBE161EA89892002DDA9B /* DYHSlowLiquidBallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHSlowLiquidBallViewController.h; sourceTree = "<group>"; };
@@ -148,6 +154,18 @@
 			path = Classes/Demo5_HelloAnimation;
 			sourceTree = SOURCE_ROOT;
 		};
+		BB305CBD1EC2F0DD001D23E3 /* Demo7_DYHPageView */ = {
+			isa = PBXGroup;
+			children = (
+				BB305CBE1EC2F118001D23E3 /* DYHPageView.h */,
+				BB305CBF1EC2F118001D23E3 /* DYHPageView.m */,
+				BB305CC11EC2F13F001D23E3 /* DYHPageViewController.h */,
+				BB305CC21EC2F13F001D23E3 /* DYHPageViewController.m */,
+			);
+			name = Demo7_DYHPageView;
+			path = Classes/Demo7_DYHPageView;
+			sourceTree = SOURCE_ROOT;
+		};
 		BB6CBE151EA895D2002DDA9B /* Demo6_SlowLiquidBall */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +225,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BB305CBD1EC2F0DD001D23E3 /* Demo7_DYHPageView */,
 				BB6CBE151EA895D2002DDA9B /* Demo6_SlowLiquidBall */,
 				BB2005901E94CB9B00C4161D /* Demo5_HelloAnimation */,
 				BBEE995A1E8F70C900A1E434 /* Demo4_SubmitButton */,
@@ -586,10 +605,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA330561E8CFDBD00A446BF /* DYHLiquidMenuViewController.m in Sources */,
+				BB305CC31EC2F13F001D23E3 /* DYHPageViewController.m in Sources */,
 				BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */,
 				BBEE995D1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m in Sources */,
 				BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */,
 				BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */,
+				BB305CC01EC2F118001D23E3 /* DYHPageView.m in Sources */,
 				BB6CBE181EA89892002DDA9B /* DYHSlowLiquidBallViewController.m in Sources */,
 				BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
