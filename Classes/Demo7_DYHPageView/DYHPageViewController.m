@@ -26,6 +26,12 @@
     [self.view addSubview:pageView];
     self.pageView = pageView;
     [self.pageView reloadData];
+    [self.pageView jumpToIndex:1];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.pageView changeClipsToBoundsState:YES];
 }
 
 @end

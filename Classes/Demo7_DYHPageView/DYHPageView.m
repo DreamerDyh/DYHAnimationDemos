@@ -173,4 +173,10 @@
     
 }
 
+#pragma mark - Public Tool
+- (void)changeClipsToBoundsState:(BOOL)clipsToBounds
+{
+    self.scrollView.clipsToBounds = clipsToBounds;
+}
+
 @end

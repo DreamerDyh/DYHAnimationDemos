@@ -16,4 +16,8 @@
 
 - (void)reloadData;
 
+- (void)jumpToIndex:(NSUInteger)index;
+
+- (void)changeClipsToBoundsState:(BOOL)clipsToBounds;
+
 @end
