@@ -10,4 +10,10 @@
 
 @interface DYHPageView : UIView
 
+- (instancetype)initWithImageUrls:(NSArray *)imageUrls frame:(CGRect)frame;
+
++ (instancetype)pageViewWithImageUrls:(NSArray *)imageUrls frame:(CGRect)frame;
+
+- (void)reloadData;
+
 @end

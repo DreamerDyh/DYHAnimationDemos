@@ -8,7 +8,11 @@
 
 #import "DYHPageViewController.h"
 
+#import "DYHPageView.h"
+
 @interface DYHPageViewController ()
+
+@property (nonatomic, weak) DYHPageView *pageView;
 
 @end
 
@@ -16,7 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSArray *imageUrls = @[@"preview_1",@"preview_2",@"preview_3",@"preview_4"];
+    DYHPageView *pageView = [DYHPageView pageViewWithImageUrls:imageUrls frame:CGRectMake(0, 150, self.view.bounds.size.width, 400.f)];
+    [self.view addSubview:pageView];
+    self.pageView = pageView;
+    [self.pageView reloadData];
 }
 
 @end
