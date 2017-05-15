@@ -14,6 +14,7 @@
 #import "DYHSubmitButtonViewController.h"
 #import "DYHHelloAnimationViewController.h"
 #import "DYHSlowLiquidBallViewController.h"
+#import "DYHEasyTransitionViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
@@ -24,6 +25,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
     demo4_submitButton,
     demo5_helloAnimation,
     demo6_slowLiquidBall,
+    demo7_easyTransition,
 };
 
 @interface RootViewController ()
@@ -66,7 +68,8 @@ typedef NS_ENUM(NSInteger, rowTags) {
                    @(demo3_liquidMenu):[DYHLiquidMenuViewController class],
                    @(demo4_submitButton):[DYHSubmitButtonViewController class],
                    @(demo5_helloAnimation):[DYHHelloAnimationViewController class],
-                   @(demo6_slowLiquidBall):[DYHSlowLiquidBallViewController class]
+                   @(demo6_slowLiquidBall):[DYHSlowLiquidBallViewController class],
+                   @(demo7_easyTransition):[DYHEasyTransitionViewController class]
                    };
     }
     return _demos;
@@ -138,6 +141,9 @@ typedef NS_ENUM(NSInteger, rowTags) {
             break;
         case demo6_slowLiquidBall:
             text = @"Demo6-慢速液态球";
+            break;
+        case demo7_easyTransition:
+            text = @"Demo7-简单转场";
             break;
         default:
             text = @"404";
