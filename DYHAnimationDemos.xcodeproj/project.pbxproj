@@ -12,6 +12,8 @@
 		BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */; };
 		BB2512C11EC9D0FD00122710 /* DYHEasyTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2512C01EC9D0FD00122710 /* DYHEasyTransitionViewController.m */; };
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
+		BB497C131ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB497C121ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m */; };
+		BB497C161ECAA8E5009A9C8D /* DYHEasyAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BB497C151ECAA8E5009A9C8D /* DYHEasyAnimator.m */; };
 		BB6CBE181EA89892002DDA9B /* DYHSlowLiquidBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CBE171EA89892002DDA9B /* DYHSlowLiquidBallViewController.m */; };
 		BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AE61E8A00DF00A80A3D /* DYHPaperPlaneViewController.m */; };
 		BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */; };
@@ -62,6 +64,10 @@
 		BB2512C01EC9D0FD00122710 /* DYHEasyTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHEasyTransitionViewController.m; sourceTree = "<group>"; };
 		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
 		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
+		BB497C111ECAA4B6009A9C8D /* DYHBaseDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseDestinationViewController.h; sourceTree = "<group>"; };
+		BB497C121ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseDestinationViewController.m; sourceTree = "<group>"; };
+		BB497C141ECAA8E5009A9C8D /* DYHEasyAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHEasyAnimator.h; sourceTree = "<group>"; };
+		BB497C151ECAA8E5009A9C8D /* DYHEasyAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHEasyAnimator.m; sourceTree = "<group>"; };
 		BB6CBE161EA89892002DDA9B /* DYHSlowLiquidBallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHSlowLiquidBallViewController.h; sourceTree = "<group>"; };
 		BB6CBE171EA89892002DDA9B /* DYHSlowLiquidBallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHSlowLiquidBallViewController.m; sourceTree = "<group>"; };
 		BB80D6441E779A6400399A42 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 			children = (
 				BB2512BF1EC9D0FD00122710 /* DYHEasyTransitionViewController.h */,
 				BB2512C01EC9D0FD00122710 /* DYHEasyTransitionViewController.m */,
+				BB497C141ECAA8E5009A9C8D /* DYHEasyAnimator.h */,
+				BB497C151ECAA8E5009A9C8D /* DYHEasyAnimator.m */,
 			);
 			name = Demo7_EasyTransition;
 			path = Classes/Demo7_EasyTransition;
@@ -293,6 +301,8 @@
 				BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */,
 				BB940AE91E8A519900A80A3D /* DYHTipSwitchView.h */,
 				BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */,
+				BB497C111ECAA4B6009A9C8D /* DYHBaseDestinationViewController.h */,
+				BB497C121ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m */,
 			);
 			name = BaseComponents;
 			path = Classes/BaseComponents;
@@ -611,7 +621,9 @@
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
 				BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */,
 				BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */,
+				BB497C161ECAA8E5009A9C8D /* DYHEasyAnimator.m in Sources */,
 				BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */,
+				BB497C131ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m in Sources */,
 				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
 				BBB291481E7799290068ACF8 /* RootViewController.m in Sources */,
