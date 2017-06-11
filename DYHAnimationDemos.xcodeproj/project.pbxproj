@@ -31,6 +31,7 @@
 		BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */; };
 		BBEE995D1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEE995C1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m */; };
 		BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEE995F1E8F72AA00A1E434 /* DYHAnimateSubmitButton.m */; };
+		BBF12F791EED9C0300137423 /* DYHSceneKitResearch1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF12F781EED9C0300137423 /* DYHSceneKitResearch1ViewController.m */; };
 		BF809380B08DF8D22FDB54AE /* libPods-DYHAnimationDemos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		BBEE995C1E8F70FD00A1E434 /* DYHSubmitButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHSubmitButtonViewController.m; sourceTree = "<group>"; };
 		BBEE995E1E8F72AA00A1E434 /* DYHAnimateSubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHAnimateSubmitButton.h; sourceTree = "<group>"; };
 		BBEE995F1E8F72AA00A1E434 /* DYHAnimateSubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHAnimateSubmitButton.m; sourceTree = "<group>"; };
+		BBF12F771EED9C0300137423 /* DYHSceneKitResearch1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitResearch1ViewController.h; sourceTree = "<group>"; };
+		BBF12F781EED9C0300137423 /* DYHSceneKitResearch1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitResearch1ViewController.m; sourceTree = "<group>"; };
 		C9FA736DC9CF2899A34E28D1 /* libPods-DYHAnimationDemos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYHAnimationDemos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D470F650B96A4CF78AFEE31E /* Pods-DYHAnimationDemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5F0796DF3908D2040C9C196 /* Pods-DYHAnimationDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYHAnimationDemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYHAnimationDemosTests/Pods-DYHAnimationDemosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBF12F761EED9BEA00137423 /* Demo8_SceneKitResearch1 */,
 				BB2512BE1EC9D0DE00122710 /* Demo7_EasyTransition */,
 				BB6CBE151EA895D2002DDA9B /* Demo6_SlowLiquidBall */,
 				BB2005901E94CB9B00C4161D /* Demo5_HelloAnimation */,
@@ -328,6 +332,16 @@
 			);
 			name = Demo4_SubmitButton;
 			path = Classes/Demo4_SubmitButton;
+			sourceTree = SOURCE_ROOT;
+		};
+		BBF12F761EED9BEA00137423 /* Demo8_SceneKitResearch1 */ = {
+			isa = PBXGroup;
+			children = (
+				BBF12F771EED9C0300137423 /* DYHSceneKitResearch1ViewController.h */,
+				BBF12F781EED9C0300137423 /* DYHSceneKitResearch1ViewController.m */,
+			);
+			name = Demo8_SceneKitResearch1;
+			path = Classes/Demo8_SceneKitResearch1;
 			sourceTree = SOURCE_ROOT;
 		};
 		FC83AC226152A8700C05C86C /* Pods */ = {
@@ -617,6 +631,7 @@
 				BB6CBE181EA89892002DDA9B /* DYHSlowLiquidBallViewController.m in Sources */,
 				BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */,
 				BB2512C11EC9D0FD00122710 /* DYHEasyTransitionViewController.m in Sources */,
+				BBF12F791EED9C0300137423 /* DYHSceneKitResearch1ViewController.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
 				BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */,
