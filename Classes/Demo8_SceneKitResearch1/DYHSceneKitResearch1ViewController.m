@@ -46,7 +46,7 @@
     SCNCamera *camera = [SCNCamera new];
     SCNNode *cameraNode = [SCNNode new];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(0, 0, 10.f);
+    cameraNode.position = SCNVector3Make(0, 0, 5.f);
     self.cameraNode = cameraNode;
     
     SCNNode *enviromentLightNode = [SCNNode node];
@@ -57,12 +57,14 @@
     SCNNode *omiLightNode = [SCNNode node];
     omiLightNode.light = [SCNLight light];
     omiLightNode.light.type = SCNLightTypeOmni;
-    omiLightNode.light.color = [UIColor yellowColor];
+    omiLightNode.light.color = [UIColor whiteColor];
     omiLightNode.position = SCNVector3Make(0, 10, 10);
     
     
     SCNNode *geometryNode = [SCNNode nodeWithGeometry:[self.preparedGeometries firstObject]];
     self.geometryNode = geometryNode;
+    
+    [geometryNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0 y:0 z:1.f duration:1]]];
     
     [scene.rootNode addChildNode:cameraNode];
     [scene.rootNode addChildNode:enviromentLightNode];
@@ -83,7 +85,8 @@
     if (!_preparedGeometries) {
         //SCNSphere SCNCylinder SCNCone SCNTube SCNCapsule SCNTorus SCNText SCNShape
         SCNMaterial *material = [SCNMaterial material];
-        material.diffuse.contents = [UIColor redColor];
+        //material.diffuse.contents = [UIImage imageNamed:@"earth"];
+        material.diffuse.contents = [UIColor blueColor];
         SCNBox *box = [SCNBox boxWithWidth:1.f height:1.f length:1.f chamferRadius:0.f];
         box.firstMaterial = material;
         SCNSphere *sphere = [SCNSphere sphereWithRadius:1.f];
