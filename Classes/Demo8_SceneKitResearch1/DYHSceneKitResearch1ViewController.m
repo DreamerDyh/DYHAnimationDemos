@@ -57,7 +57,7 @@
     SCNNode *omiLightNode = [SCNNode node];
     omiLightNode.light = [SCNLight light];
     omiLightNode.light.type = SCNLightTypeOmni;
-    omiLightNode.light.color = [UIColor redColor];
+    omiLightNode.light.color = [UIColor yellowColor];
     omiLightNode.position = SCNVector3Make(0, 10, 10);
     
     
@@ -84,6 +84,8 @@
         //SCNSphere SCNCylinder SCNCone SCNTube SCNCapsule SCNTorus SCNText SCNShape
         SCNMaterial *material = [SCNMaterial material];
         material.diffuse.contents = [UIColor redColor];
+        SCNBox *box = [SCNBox boxWithWidth:1.f height:1.f length:1.f chamferRadius:0.f];
+        box.firstMaterial = material;
         SCNSphere *sphere = [SCNSphere sphereWithRadius:1.f];
         sphere.firstMaterial = material;
         SCNCylinder *cylinder = [SCNCylinder cylinderWithRadius:0.5f height:1.f];
@@ -99,7 +101,7 @@
         SCNText *text = [SCNText textWithString:@"Hello 世界" extrusionDepth:2.f];
         text.font = [UIFont systemFontOfSize:1.f];
         text.firstMaterial = material;
-        _preparedGeometries = @[sphere,cylinder,cone,tube,capsule,torus,text];
+        _preparedGeometries = @[box,sphere,cylinder,cone,tube,capsule,torus,text];
     }
     return _preparedGeometries;
 }

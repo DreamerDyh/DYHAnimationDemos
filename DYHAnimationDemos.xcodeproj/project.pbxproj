@@ -12,6 +12,7 @@
 		BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2005921E94CBB600C4161D /* DYHHelloAnimationViewController.m */; };
 		BB2512C11EC9D0FD00122710 /* DYHEasyTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2512C01EC9D0FD00122710 /* DYHEasyTransitionViewController.m */; };
 		BB361CEC1EF252EA00846E8F /* DYHSceneKitResearch2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB361CEB1EF252EA00846E8F /* DYHSceneKitResearch2ViewController.m */; };
+		BB361CF21EF25F8600846E8F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BB361CF11EF25F8600846E8F /* art.scnassets */; };
 		BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */; };
 		BB497C131ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB497C121ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m */; };
 		BB497C161ECAA8E5009A9C8D /* DYHEasyAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BB497C151ECAA8E5009A9C8D /* DYHEasyAnimator.m */; };
@@ -66,6 +67,7 @@
 		BB2512C01EC9D0FD00122710 /* DYHEasyTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHEasyTransitionViewController.m; sourceTree = "<group>"; };
 		BB361CEA1EF252EA00846E8F /* DYHSceneKitResearch2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitResearch2ViewController.h; sourceTree = "<group>"; };
 		BB361CEB1EF252EA00846E8F /* DYHSceneKitResearch2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitResearch2ViewController.m; sourceTree = "<group>"; };
+		BB361CF11EF25F8600846E8F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		BB389AF41E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseAnimateSceneViewController.h; sourceTree = "<group>"; };
 		BB389AF51E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHBaseAnimateSceneViewController.m; sourceTree = "<group>"; };
 		BB497C111ECAA4B6009A9C8D /* DYHBaseDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHBaseDestinationViewController.h; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		BBB2910F1E7797800068ACF8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BB361CF11EF25F8600846E8F /* art.scnassets */,
 				BBB2911B1E7797800068ACF8 /* Assets.xcassets */,
 				BBB2911D1E7797800068ACF8 /* LaunchScreen.storyboard */,
 				BBB291201E7797800068ACF8 /* Info.plist */,
@@ -489,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB2911F1E7797800068ACF8 /* LaunchScreen.storyboard in Resources */,
+				BB361CF21EF25F8600846E8F /* art.scnassets in Resources */,
 				BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
