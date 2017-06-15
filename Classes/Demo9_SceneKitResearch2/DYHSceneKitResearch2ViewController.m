@@ -37,6 +37,8 @@
     [super viewDidLoad];
     
     SCNView *sceneView = [[SCNView alloc] initWithFrame:self.view.bounds];
+    sceneView.allowsCameraControl = YES;
+    sceneView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:sceneView];
     self.sceneView = sceneView;
     
@@ -46,7 +48,7 @@
     SCNCamera *camera = [SCNCamera new];
     SCNNode *cameraNode = [SCNNode new];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(5.f, 5.f, 5.f);
+    cameraNode.position = SCNVector3Make(0.f, 0.f, 10.f);
     
     SCNNode *enviromentLightNode = [SCNNode node];
     enviromentLightNode.light = [SCNLight light];
@@ -56,64 +58,24 @@
     SCNNode *lightNode = [SCNNode node];
     lightNode.light = [SCNLight light];
     lightNode.light.type = [self.preparedLightType firstObject];
-    lightNode.light.color = [UIColor redColor];
-    lightNode.position = SCNVector3Make(-10.f, 5.f, 5.f);
+    lightNode.light.color = [UIColor yellowColor];
+    lightNode.position = SCNVector3Make(0, 10.f, 5.f);
     self.lightNode = lightNode;
     
-    
-    SCNNode *geometryNode = [SCNNode nodeWithGeometry:[self.preparedGeometries firstObject]];
+    SCNNode *geometryNode = [SCNNode nodeWithGeometry:[self.preparedGeometries objectAtIndex:1]];
     self.geometryNode = geometryNode;
-    
-    SCNLookAtConstraint *constraint = [SCNLookAtConstraint lookAtConstraintWithTarget:geometryNode];
-    constraint.gimbalLockEnabled = YES;
-    cameraNode.constraints = @[constraint];
     
     [scene.rootNode addChildNode:cameraNode];
     [scene.rootNode addChildNode:enviromentLightNode];
     [scene.rootNode addChildNode:lightNode];
     [scene.rootNode addChildNode:geometryNode];
     
-    UISlider *sliderZ = [UISlider new];
-    sliderZ.minimumValue = 0.f;
-    sliderZ.maximumValue = 10.f;
-    sliderZ.tag = 3;
-    [sliderZ addTarget:self action:@selector(slide:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:sliderZ];
-    self.sliderZ = sliderZ;
-    [sliderZ mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(kSliderLRMargin);
-        make.right.mas_equalTo(-kSliderLRMargin);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
-    
-    UISlider *sliderY = [UISlider new];
-    sliderY.minimumValue = 0.f;
-    sliderY.maximumValue = 10.f;
-    sliderY.tag = 2;
-    [sliderY addTarget:self action:@selector(slide:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:sliderY];
-    self.sliderY = sliderY;
-    [sliderY mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(kSliderLRMargin);
-        make.right.mas_equalTo(-kSliderLRMargin);
-        make.bottom.equalTo(sliderZ.mas_top).offset(-kSliderLRMargin);
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
-    
-    UISlider *sliderX = [UISlider new];
-    sliderX.minimumValue = 0.f;
-    sliderX.maximumValue = 10.f;
-    sliderX.tag = 1;
-    [sliderX addTarget:self action:@selector(slide:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:sliderX];
-    self.sliderX = sliderX;
-    [sliderX mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(kSliderLRMargin);
-        make.right.mas_equalTo(-kSliderLRMargin);
-        make.bottom.equalTo(sliderY.mas_top).offset(-kSliderLRMargin);
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
+    // add a tap gesture recognizer
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    NSMutableArray *gestureRecognizers = [NSMutableArray array];
+    [gestureRecognizers addObject:tapGesture];
+    [gestureRecognizers addObjectsFromArray:sceneView.gestureRecognizers];
+    sceneView.gestureRecognizers = gestureRecognizers;
     
 }
 
@@ -123,6 +85,8 @@
         //SCNSphere SCNCylinder SCNCone SCNTube SCNCapsule SCNTorus SCNText SCNShape
         SCNMaterial *material = [SCNMaterial material];
         material.diffuse.contents = [UIColor redColor];
+        SCNBox *box = [SCNBox boxWithWidth:1.f height:1.f length:1.f chamferRadius:0.f];
+        box.firstMaterial = material;
         SCNSphere *sphere = [SCNSphere sphereWithRadius:1.f];
         sphere.firstMaterial = material;
         SCNCylinder *cylinder = [SCNCylinder cylinderWithRadius:0.5f height:1.f];
@@ -138,7 +102,7 @@
         SCNText *text = [SCNText textWithString:@"Hello" extrusionDepth:2.f];
         text.font = [UIFont systemFontOfSize:1.f];
         text.firstMaterial = material;
-        _preparedGeometries = @[sphere,cylinder,cone,tube,capsule,torus,text];
+        _preparedGeometries = @[box,sphere,cylinder,cone,tube,capsule,torus,text];
     }
     return _preparedGeometries;
 }
@@ -151,7 +115,7 @@
     return _preparedLightType;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)handleTap:(id)sender
 {
     NSInteger nowIndex = [self.preparedLightType indexOfObject:self.lightNode.light.type];
     if (nowIndex + 1 < self.preparedLightType.count ) {
@@ -160,21 +124,6 @@
         self.lightNode.light.type = [self.preparedLightType firstObject];
     }
     
-}
-
-- (void)slide:(UISlider *)slider
-{
-    SCNVector3 position = SCNVector3Make(0, 0, 0);
-    if (slider.tag == 1) {
-        //x
-        self.lightNode.position = SCNVector3Make(slider.value, position.y, position.z);
-    } else if(slider.tag == 2) {
-        //y
-        self.lightNode.position = SCNVector3Make(position.x, slider.value, position.z);
-    } else {
-        //z
-        self.lightNode.position = SCNVector3Make(position.x, position.y, slider.value);
-    }
 }
 
 @end
