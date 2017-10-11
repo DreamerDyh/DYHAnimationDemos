@@ -16,7 +16,9 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-#define kNavHeight 64
+#define kNavHeight 64.f
+
+#define kStandardMargin 15.f
 
 #pragma mark - 宏调用
 
