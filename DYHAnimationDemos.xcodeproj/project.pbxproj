@@ -20,6 +20,7 @@
 		BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB940AEA1E8A519900A80A3D /* DYHTipSwitchView.m */; };
 		BBA330561E8CFDBD00A446BF /* DYHLiquidMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */; };
 		BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA621151E8217DF00C32540 /* DYHActiveButton.m */; };
+		BBAE87721F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE87711F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m */; };
 		BBB291111E7797800068ACF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291101E7797800068ACF8 /* main.m */; };
 		BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911B1E7797800068ACF8 /* Assets.xcassets */; };
 		BBB2911F1E7797800068ACF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911D1E7797800068ACF8 /* LaunchScreen.storyboard */; };
@@ -83,6 +84,8 @@
 		BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHLiquidMenuViewController.m; sourceTree = "<group>"; };
 		BBA621141E8217DF00C32540 /* DYHActiveButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHActiveButton.h; sourceTree = "<group>"; };
 		BBA621151E8217DF00C32540 /* DYHActiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHActiveButton.m; sourceTree = "<group>"; };
+		BBAE87701F8E15A900E48286 /* DYHSceneKitResearch3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitResearch3ViewController.h; sourceTree = "<group>"; };
+		BBAE87711F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitResearch3ViewController.m; sourceTree = "<group>"; };
 		BBB2910C1E7797800068ACF8 /* DYHAnimationDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYHAnimationDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB291101E7797800068ACF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBB2911B1E7797800068ACF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -219,6 +222,16 @@
 			path = Classes/Demo3_LiquidMenu;
 			sourceTree = SOURCE_ROOT;
 		};
+		BBAE876C1F8E14E000E48286 /* Demo10_SceneKitResearch3 */ = {
+			isa = PBXGroup;
+			children = (
+				BBAE87701F8E15A900E48286 /* DYHSceneKitResearch3ViewController.h */,
+				BBAE87711F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m */,
+			);
+			name = Demo10_SceneKitResearch3;
+			path = Classes/Demo10_SceneKitResearch3;
+			sourceTree = SOURCE_ROOT;
+		};
 		BBB291031E77977F0068ACF8 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBAE876C1F8E14E000E48286 /* Demo10_SceneKitResearch3 */,
 				BB361CE91EF252D100846E8F /* Demo9_SceneKitResearch2 */,
 				BBF12F761EED9BEA00137423 /* Demo8_SceneKitResearch1 */,
 				BB2512BE1EC9D0DE00122710 /* Demo7_EasyTransition */,
@@ -646,6 +660,7 @@
 				BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */,
 				BB2512C11EC9D0FD00122710 /* DYHEasyTransitionViewController.m in Sources */,
 				BBF12F791EED9C0300137423 /* DYHSceneKitResearch1ViewController.m in Sources */,
+				BBAE87721F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m in Sources */,
 				BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */,
 				BB940AEB1E8A519900A80A3D /* DYHTipSwitchView.m in Sources */,
 				BB2005931E94CBB600C4161D /* DYHHelloAnimationViewController.m in Sources */,

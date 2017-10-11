@@ -17,6 +17,7 @@
 #import "DYHEasyTransitionViewController.h"
 #import "DYHSceneKitResearch1ViewController.h"
 #import "DYHSceneKitResearch2ViewController.h"
+#import "DYHSceneKitResearch3ViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
@@ -30,6 +31,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
     demo7_easyTransition,
     demo8_sceneKitResearch1,
     demo9_sceneKitResearch2,
+    demo10_sceneKitResearch3,
 };
 
 @interface RootViewController ()
@@ -75,7 +77,8 @@ typedef NS_ENUM(NSInteger, rowTags) {
                    @(demo6_slowLiquidBall):[DYHSlowLiquidBallViewController class],
                    @(demo7_easyTransition):[DYHEasyTransitionViewController class],
                    @(demo8_sceneKitResearch1):[DYHSceneKitResearch1ViewController class],
-                   @(demo9_sceneKitResearch2):[DYHSceneKitResearch2ViewController class]
+                   @(demo9_sceneKitResearch2):[DYHSceneKitResearch2ViewController class],
+                   @(demo10_sceneKitResearch3):[DYHSceneKitResearch3ViewController class],
                    };
     }
     return _demos;
@@ -156,6 +159,9 @@ typedef NS_ENUM(NSInteger, rowTags) {
             break;
         case demo9_sceneKitResearch2:
             text = @"Demo8-SceneKit研究2";
+            break;
+        case demo10_sceneKitResearch3:
+            text = @"Demo8-SceneKit研究3";
             break;
         default:
             text = @"404";
