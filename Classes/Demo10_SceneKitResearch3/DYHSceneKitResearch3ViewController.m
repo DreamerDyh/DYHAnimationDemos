@@ -8,6 +8,7 @@
 
 #import "DYHSceneKitResearch3ViewController.h"
 #import <SceneKit/SceneKit.h>
+#import "DYHSceneKitUtil.h"
 
 @interface DYHSceneKitResearch3ViewController ()
 
@@ -60,13 +61,11 @@
     SCNNode *geometryNode = [SCNNode nodeWithGeometry:box];
     self.geometryNode = geometryNode;
     
-    [self showAxis];
+    [DYHSceneKitUtil showAxisOnScene:self.sceneView.scene];
     [scene.rootNode addChildNode:cameraNode];
     [scene.rootNode addChildNode:enviromentLightNode];
     [scene.rootNode addChildNode:lightNode];
     [scene.rootNode addChildNode:geometryNode];
-    
-    
     
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(kStandardMargin, self.view.bounds.size.height - kStandardMargin - kStandardMargin, self.view.bounds.size.width - 2*kStandardMargin, kStandardMargin)];
     [slider addTarget:self action:@selector(slide:) forControlEvents:UIControlEventValueChanged];
@@ -78,30 +77,6 @@
 {
     self.cameraNode.position = SCNVector3Make(-10.f * s.value, 10.f * s.value, 10.f*(1-s.value));
     NSLog(@"position: %@ \n rotation: %@ \n ",[NSValue valueWithSCNVector3:self.cameraNode.position],[NSValue valueWithSCNVector4:self.cameraNode.rotation]);
-}
-
-- (void)showAxis
-{
-    SCNNode* yAxisNode = [self fitCapsuleNodeWithColor:[UIColor redColor]];
-    [self.sceneView.scene.rootNode addChildNode:yAxisNode];
-    
-    SCNNode* xAxisNode = [self fitCapsuleNodeWithColor:[UIColor blueColor]];
-    xAxisNode.rotation = SCNVector4Make(0, 0, 1.f, -M_PI_2);
-    [self.sceneView.scene.rootNode addChildNode:xAxisNode];
-    
-    SCNNode* zAxisNode = [self fitCapsuleNodeWithColor:[UIColor greenColor]];
-    zAxisNode.rotation = SCNVector4Make(1.f, 0, 0, M_PI_2);
-    [self.sceneView.scene.rootNode addChildNode:zAxisNode];
-}
-
-- (SCNNode *)fitCapsuleNodeWithColor:(UIColor *)color
-{
-    CGFloat axisHeight = 2.f;
-    SCNCapsule *axis = [SCNCapsule capsuleWithCapRadius:0.02f height:axisHeight];
-    axis.firstMaterial.diffuse.contents = color;
-    SCNNode* axisNode = [SCNNode nodeWithGeometry:axis];
-    axisNode.pivot = SCNMatrix4MakeTranslation(0, -axisHeight/2.f, 0);
-    return axisNode;
 }
 
 @end

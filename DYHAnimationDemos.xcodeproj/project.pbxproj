@@ -21,6 +21,7 @@
 		BBA330561E8CFDBD00A446BF /* DYHLiquidMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA330551E8CFDBD00A446BF /* DYHLiquidMenuViewController.m */; };
 		BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA621151E8217DF00C32540 /* DYHActiveButton.m */; };
 		BBAE87721F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE87711F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m */; };
+		BBAE87751F8E4B0F00E48286 /* DYHSceneKitUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE87741F8E4B0F00E48286 /* DYHSceneKitUtil.m */; };
 		BBB291111E7797800068ACF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291101E7797800068ACF8 /* main.m */; };
 		BBB2911C1E7797800068ACF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911B1E7797800068ACF8 /* Assets.xcassets */; };
 		BBB2911F1E7797800068ACF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB2911D1E7797800068ACF8 /* LaunchScreen.storyboard */; };
@@ -86,6 +87,8 @@
 		BBA621151E8217DF00C32540 /* DYHActiveButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHActiveButton.m; sourceTree = "<group>"; };
 		BBAE87701F8E15A900E48286 /* DYHSceneKitResearch3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitResearch3ViewController.h; sourceTree = "<group>"; };
 		BBAE87711F8E15A900E48286 /* DYHSceneKitResearch3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitResearch3ViewController.m; sourceTree = "<group>"; };
+		BBAE87731F8E4B0F00E48286 /* DYHSceneKitUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitUtil.h; sourceTree = "<group>"; };
+		BBAE87741F8E4B0F00E48286 /* DYHSceneKitUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitUtil.m; sourceTree = "<group>"; };
 		BBB2910C1E7797800068ACF8 /* DYHAnimationDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYHAnimationDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB291101E7797800068ACF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBB2911B1E7797800068ACF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,6 +313,8 @@
 				BBB291461E7799290068ACF8 /* RootViewController.h */,
 				BBB291471E7799290068ACF8 /* RootViewController.m */,
 				BB80D6441E779A6400399A42 /* PrefixHeader.pch */,
+				BBAE87731F8E4B0F00E48286 /* DYHSceneKitUtil.h */,
+				BBAE87741F8E4B0F00E48286 /* DYHSceneKitUtil.m */,
 			);
 			name = Root;
 			path = Classes/Root;
@@ -668,6 +673,7 @@
 				BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */,
 				BB497C161ECAA8E5009A9C8D /* DYHEasyAnimator.m in Sources */,
 				BBEE99601E8F72AA00A1E434 /* DYHAnimateSubmitButton.m in Sources */,
+				BBAE87751F8E4B0F00E48286 /* DYHSceneKitUtil.m in Sources */,
 				BB497C131ECAA4B6009A9C8D /* DYHBaseDestinationViewController.m in Sources */,
 				BB940AE71E8A00DF00A80A3D /* DYHPaperPlaneViewController.m in Sources */,
 				BBB291111E7797800068ACF8 /* main.m in Sources */,
