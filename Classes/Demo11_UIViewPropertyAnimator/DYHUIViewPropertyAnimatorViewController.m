@@ -24,8 +24,8 @@
     [super viewDidLoad];
     [self setUpSubviews];
     //[self setAnimationByTraditionalWay];
-    //[self setAnimationByNewWay];
-    [self quicklySetAnimationWithSelfTimingFunction];
+    [self setAnimationByNewWay];
+    //[self quicklySetAnimationWithSelfTimingFunction];
 }
 
 - (void)setUpSubviews
