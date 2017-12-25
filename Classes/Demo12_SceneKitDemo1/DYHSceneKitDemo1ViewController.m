@@ -20,8 +20,6 @@
 
 @property (nonatomic, weak) SCNNode *cameraNode;
 
-@property (nonatomic, weak) SCNNode *lightNode;
-
 @end
 
 @implementation DYHSceneKitDemo1ViewController
@@ -67,26 +65,27 @@
     SCNCamera *camera = [SCNCamera new];
     SCNNode *cameraNode = [SCNNode new];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(0, 0, 15.f);
+    cameraNode.position = SCNVector3Make(0, 5.f, 15.f);
+    cameraNode.rotation = SCNVector4Make(1.f, 0.f, 0.f, -M_PI/10.f);
     self.cameraNode = cameraNode;
     
-    /*SCNNode *enviromentLightNode = [SCNNode node];
+    //环境光
+    SCNNode *enviromentLightNode = [SCNNode node];
      enviromentLightNode.light = [SCNLight light];
      enviromentLightNode.light.type = SCNLightTypeAmbient;
-     enviromentLightNode.light.color = [UIColor darkGrayColor];*/
+    enviromentLightNode.light.color = [UIColor colorWithWhite:0.4 alpha:1];
     
-    /*SCNNode *lightNode = [SCNNode node];
-     lightNode.light = [SCNLight light];
-     lightNode.light.type = SCNLightTypeOmni;
-     lightNode.light.color = [UIColor yellowColor];
-     lightNode.position = SCNVector3Make(0, 10.f, 5.f);
-     self.lightNode = lightNode;*/
+    //左上角打灯
+    SCNNode *ltLightNode = [SCNNode node];
+     ltLightNode.light = [SCNLight light];
+     ltLightNode.light.type = SCNLightTypeOmni;
+     ltLightNode.light.color = [UIColor whiteColor];
+     ltLightNode.position = SCNVector3Make(-10.f, 10.f, 10.f);
+    
     
     [scene.rootNode addChildNode:cameraNode];
-    //[sceneView.scene.rootNode addChildNode:enviromentLightNode];
-    //[sceneView.scene.rootNode addChildNode:lightNode];
-    
-    [DYHSceneKitUtil showAxisOnScene:scene length:15.f];
+    [scene.rootNode addChildNode:enviromentLightNode];
+    [scene.rootNode addChildNode:ltLightNode];
 }
 
 - (void)setUpEarth:(SCNScene *)scene
@@ -97,6 +96,8 @@
     sphere.firstMaterial.specular.contents = [UIImage imageNamed:@"earthSpecular"];
     sphere.firstMaterial.normal.contents = [UIImage imageNamed:@"earthNormal"];
     self.earthNode = earthNode;
+    
+    [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:5.f]]];
     
     [scene.rootNode addChildNode:earthNode];
 }
