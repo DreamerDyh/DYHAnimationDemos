@@ -10,6 +10,8 @@
 #import "DYHSceneKitUtil.h"
 #import <SceneKit/SceneKit.h>
 
+#define kEarthRadius 5.f
+
 @interface DYHSceneKitDemo1ViewController ()
 
 @property (nonatomic, weak) UIImageView *bgView;
@@ -65,7 +67,7 @@
     SCNCamera *camera = [SCNCamera new];
     SCNNode *cameraNode = [SCNNode new];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(0, 5.f, 15.f);
+    cameraNode.position = SCNVector3Make(0, kEarthRadius, 3*kEarthRadius);
     cameraNode.rotation = SCNVector4Make(1.f, 0.f, 0.f, -M_PI/10.f);
     self.cameraNode = cameraNode;
     
@@ -80,8 +82,7 @@
      ltLightNode.light = [SCNLight light];
      ltLightNode.light.type = SCNLightTypeOmni;
      ltLightNode.light.color = [UIColor whiteColor];
-     ltLightNode.position = SCNVector3Make(-10.f, 10.f, 10.f);
-    
+     ltLightNode.position = SCNVector3Make(-(2*kEarthRadius), 2*kEarthRadius, 2*kEarthRadius);
     
     [scene.rootNode addChildNode:cameraNode];
     [scene.rootNode addChildNode:enviromentLightNode];
@@ -90,7 +91,7 @@
 
 - (void)setUpEarth:(SCNScene *)scene
 {
-    SCNSphere *sphere = [SCNSphere sphereWithRadius:5.f];
+    SCNSphere *sphere = [SCNSphere sphereWithRadius:kEarthRadius];
     SCNNode *earthNode = [SCNNode nodeWithGeometry:sphere];
     sphere.firstMaterial.diffuse.contents = [UIImage imageNamed:@"earthDiffuse"];
     sphere.firstMaterial.specular.contents = [UIImage imageNamed:@"earthSpecular"];
