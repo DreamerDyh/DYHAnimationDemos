@@ -29,6 +29,7 @@
 		BBB291351E7797800068ACF8 /* DYHAnimationDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291341E7797800068ACF8 /* DYHAnimationDemosUITests.m */; };
 		BBB291481E7799290068ACF8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB291471E7799290068ACF8 /* RootViewController.m */; };
 		BBB2914C1E7799630068ACF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB2914B1E7799630068ACF8 /* AppDelegate.m */; };
+		BBB491771FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB491761FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.m */; };
 		BBC461C11E8D1FC400C53863 /* DYHLiquidView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC461C01E8D1FC400C53863 /* DYHLiquidView.m */; };
 		BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC461C31E8D26E200C53863 /* DYHCircle.m */; };
 		BBE106EF1E80CA820072C8EB /* DYHEasy3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE106EE1E80CA820072C8EB /* DYHEasy3DViewController.m */; };
@@ -105,6 +106,8 @@
 		BBB291471E7799290068ACF8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		BBB2914A1E7799630068ACF8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBB2914B1E7799630068ACF8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBB491751FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYHSceneKitDemo1ViewController.h; sourceTree = "<group>"; };
+		BBB491761FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYHSceneKitDemo1ViewController.m; sourceTree = "<group>"; };
 		BBC461BF1E8D1FC400C53863 /* DYHLiquidView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHLiquidView.h; sourceTree = "<group>"; };
 		BBC461C01E8D1FC400C53863 /* DYHLiquidView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYHLiquidView.m; sourceTree = "<group>"; };
 		BBC461C21E8D26E200C53863 /* DYHCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYHCircle.h; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 		BBB2910E1E7797800068ACF8 /* DYHAnimationDemos */ = {
 			isa = PBXGroup;
 			children = (
+				BBB491741FF09A500077FCC6 /* Demo12_SceneKitDemo1 */,
 				BBE7BDF21FD9160700728EED /* Demo11_UIViewPropertyAnimator */,
 				BBAE876C1F8E14E000E48286 /* Demo10_SceneKitResearch3 */,
 				BB361CE91EF252D100846E8F /* Demo9_SceneKitResearch2 */,
@@ -347,6 +351,16 @@
 			);
 			name = BaseComponents;
 			path = Classes/BaseComponents;
+			sourceTree = SOURCE_ROOT;
+		};
+		BBB491741FF09A500077FCC6 /* Demo12_SceneKitDemo1 */ = {
+			isa = PBXGroup;
+			children = (
+				BBB491751FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.h */,
+				BBB491761FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.m */,
+			);
+			name = Demo12_SceneKitDemo1;
+			path = Classes/Demo12_SceneKitDemo1;
 			sourceTree = SOURCE_ROOT;
 		};
 		BBE106EC1E80CA660072C8EB /* Demo1_Easy3D */ = {
@@ -676,6 +690,7 @@
 				BBA621161E8217DF00C32540 /* DYHActiveButton.m in Sources */,
 				BB389AF61E893E2D00F3E1A8 /* DYHBaseAnimateSceneViewController.m in Sources */,
 				BB6CBE181EA89892002DDA9B /* DYHSlowLiquidBallViewController.m in Sources */,
+				BBB491771FF09A6A0077FCC6 /* DYHSceneKitDemo1ViewController.m in Sources */,
 				BBE7BDF51FD9163200728EED /* DYHUIViewPropertyAnimatorViewController.m in Sources */,
 				BBC461C41E8D26E200C53863 /* DYHCircle.m in Sources */,
 				BB2512C11EC9D0FD00122710 /* DYHEasyTransitionViewController.m in Sources */,
