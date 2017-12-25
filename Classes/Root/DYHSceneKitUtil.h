@@ -14,4 +14,6 @@
 
 + (void)showAxisOnScene:(SCNScene *)scene;
 
++ (void)showAxisOnScene:(SCNScene *)scene length:(CGFloat)length;
+
 @end

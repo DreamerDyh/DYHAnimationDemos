@@ -11,23 +11,29 @@
 
 @implementation DYHSceneKitUtil
 
-+ (void)showAxisOnScene:(SCNScene *)scene
+
++ (void)showAxisOnScene:(SCNScene *)scene length:(CGFloat)length
 {
-    SCNNode* yAxisNode = [self fitCapsuleNodeWithColor:[UIColor redColor]];
+    SCNNode* yAxisNode = [self fitCapsuleNodeWithColor:[UIColor redColor] length:length];
     [scene.rootNode addChildNode:yAxisNode];
     
-    SCNNode* xAxisNode = [self fitCapsuleNodeWithColor:[UIColor blueColor]];
+    SCNNode* xAxisNode = [self fitCapsuleNodeWithColor:[UIColor blueColor] length:length];
     xAxisNode.rotation = SCNVector4Make(0, 0, 1.f, -M_PI_2);
     [scene.rootNode addChildNode:xAxisNode];
     
-    SCNNode* zAxisNode = [self fitCapsuleNodeWithColor:[UIColor greenColor]];
+    SCNNode* zAxisNode = [self fitCapsuleNodeWithColor:[UIColor greenColor] length:length];
     zAxisNode.rotation = SCNVector4Make(1.f, 0, 0, M_PI_2);
     [scene.rootNode addChildNode:zAxisNode];
 }
 
-+ (SCNNode *)fitCapsuleNodeWithColor:(UIColor *)color
++ (void)showAxisOnScene:(SCNScene *)scene
 {
-    CGFloat axisHeight = 2.f;
+    [self showAxisOnScene:scene length:2.f];
+}
+
++ (SCNNode *)fitCapsuleNodeWithColor:(UIColor *)color length:(CGFloat)length
+{
+    CGFloat axisHeight = length > 0 ? length : 2.f;
     SCNCapsule *axis = [SCNCapsule capsuleWithCapRadius:0.02f height:axisHeight];
     axis.firstMaterial.diffuse.contents = color;
     SCNNode* axisNode = [SCNNode nodeWithGeometry:axis];
