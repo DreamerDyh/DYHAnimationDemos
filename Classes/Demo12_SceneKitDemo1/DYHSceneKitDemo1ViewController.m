@@ -223,7 +223,10 @@
         [self letEarthRun:NO];
     } else if (panRecog.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [panRecog translationInView:self.sceneView];
-        CGFloat fakeDegree = (translation.x / CGRectGetWidth(self.view.bounds)) * 30;
+        CGFloat fakeDegree = (translation.x) * 0.1;
+        if (fakeDegree > 15) {
+            fakeDegree = 15;
+        }
         self.earthNode.rotation = SCNVector4Make(0.f, 1.f, 0.f, self.earthNode.rotation.w + DEGREES_TO_RADIANS(fakeDegree));
     } else if (panRecog.state == UIGestureRecognizerStateEnded || panRecog.state == UIGestureRecognizerStateCancelled)
     {
@@ -305,7 +308,7 @@
 - (void)letEarthRun:(BOOL)run
 {
     if (run) {
-        [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:3.f]]];
+        [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:2.f]]];
     } else {
         [self.earthNode removeAllActions];
     }
