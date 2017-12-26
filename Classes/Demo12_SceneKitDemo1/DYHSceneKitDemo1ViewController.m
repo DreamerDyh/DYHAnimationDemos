@@ -38,6 +38,14 @@
 
 @property (nonatomic, strong) NSDictionary *city;
 
+@property (nonatomic, assign) SCNVector3 originalCameraPosition;
+
+@property (nonatomic, assign) SCNVector4 originalCameraRotation;
+
+@property (nonatomic, assign) SCNMatrix4 originalCameraTransform;
+
+@property (nonatomic, weak) SCNLookAtConstraint *constraint;
+
 @end
 
 @implementation DYHSceneKitDemo1ViewController
@@ -139,8 +147,11 @@
     SCNCamera *camera = [SCNCamera new];
     SCNNode *cameraNode = [SCNNode new];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(0, kEarthRadius, 3*kEarthRadius);
-    cameraNode.rotation = SCNVector4Make(1.f, 0.f, 0.f, -M_PI/10.f);
+    self.originalCameraPosition = SCNVector3Make(0, kEarthRadius, 3*kEarthRadius);
+    cameraNode.position = self.originalCameraPosition;
+    self.originalCameraRotation = SCNVector4Make(1.f, 0.f, 0.f, -M_PI/10.f);
+    cameraNode.rotation = self.originalCameraRotation;
+    self.originalCameraTransform = cameraNode.transform;
     self.cameraNode = cameraNode;
     
     //环境光
@@ -197,6 +208,10 @@
     
     [self.earthNode addChildNode:tagNode];
     self.tagNode = tagNode;
+    SCNLookAtConstraint *constraint = [SCNLookAtConstraint lookAtConstraintWithTarget:self.tagNode];
+    constraint.enabled = NO;
+    self.cameraNode.constraints = @[constraint];
+    self.constraint = constraint;
 }
 
 #pragma mark - 手势处理
@@ -217,8 +232,33 @@
     }
 }
 
-- (void)longPress:(UILongPressGestureRecognizer *)tap
+- (void)longPress:(UILongPressGestureRecognizer *)longPress
 {
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        //终止自转
+        [self letEarthRun:NO];
+        CGFloat operator = 1.4;
+        SCNVector3 targetPosition = SCNVector3Make(self.tagNode.worldPosition.x * operator, self.tagNode.worldPosition.y * operator, self.tagNode.worldPosition.z * operator);
+        if(!SCNVector3EqualToVector3(self.cameraNode.position, targetPosition)){
+            self.constraint.enabled = YES;
+            [SCNTransaction begin];
+            [SCNTransaction setAnimationDuration:0.5f];
+            self.cameraNode.position = targetPosition;
+            [SCNTransaction commit];
+        }
+    } else if (longPress.state == UIGestureRecognizerStateEnded || longPress.state == UIGestureRecognizerStateCancelled)
+    {
+        //取消或者终止 重启自转
+        [self letEarthRun:YES];
+        if(!SCNMatrix4EqualToMatrix4(self.cameraNode.transform, self.originalCameraTransform)){
+            self.constraint.enabled = NO;
+            [SCNTransaction begin];
+            [SCNTransaction setAnimationDuration:0.5f];
+            self.cameraNode.rotation = self.originalCameraRotation;
+            self.cameraNode.transform = self.originalCameraTransform;
+            [SCNTransaction commit];
+        }
+    }
     
 }
 
@@ -236,7 +276,8 @@
 {
     self.tagNode.hidden = NO;
     
-    self.tagNode.position = [self vectorWithLatitude:latitude longitude:longitude radius:kEarthRadius + kTagRadius];
+    SCNVector3 position = [self vectorWithLatitude:latitude longitude:longitude radius:kEarthRadius + kTagRadius];
+    self.tagNode.position = position;
     
 }
 
@@ -264,7 +305,7 @@
 - (void)letEarthRun:(BOOL)run
 {
     if (run) {
-        [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:2.f]]];
+        [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:3.f]]];
     } else {
         [self.earthNode removeAllActions];
     }

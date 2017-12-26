@@ -858,6 +858,7 @@
 				DEVELOPMENT_TEAM = 58L36NLTL3;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Classes/Root/PrefixHeader.pch";
 				INFOPLIST_FILE = DYHAnimationDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.daiyunhao.DYHAnimationDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -872,6 +873,7 @@
 				DEVELOPMENT_TEAM = 58L36NLTL3;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Classes/Root/PrefixHeader.pch";
 				INFOPLIST_FILE = DYHAnimationDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.daiyunhao.DYHAnimationDemos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
