@@ -13,6 +13,14 @@
 
 #define kEarthRadius 5.f
 #define kCityLabelTopInset 15.f
+#define kTagRadius 0.1f
+
+
+#define RADIANS_TO_DEGREES(radian) \
+((radian) * (180.0 / M_PI))
+
+#define DEGREES_TO_RADIANS(angle) \
+((angle) / 180.0 * M_PI)
 
 @interface DYHSceneKitDemo1ViewController ()
 
@@ -23,6 +31,8 @@
 @property (nonatomic, weak) SCNNode *earthNode;
 
 @property (nonatomic, weak) SCNNode *cameraNode;
+
+@property (nonatomic, weak) SCNNode *tagNode;
 
 @property (nonatomic, weak) UILabel *cityLabel;
 
@@ -65,11 +75,13 @@
 - (void)setCity:(NSDictionary *)city
 {
     _city = city;
+    [self.cityLabel.layer removeAllAnimations];
     self.cityLabel.alpha = 0.f;
     self.cityLabel.text = [self cityDescStrWithCityDic:city];
     [UIView animateWithDuration:0.5f animations:^{
         self.cityLabel.alpha = 1.f;
     }];
+    [self adjustTagWithLatitude:[[city objectForKey:kCityKeyLatitude] doubleValue] longitude:[[city objectForKey:kCityKeyLongitude] doubleValue]];
 }
 
 #pragma mark - SubViews
@@ -104,7 +116,7 @@
     //CityLabel
     
     UILabel *cityLabel = [UILabel new];
-    cityLabel.font = [UIFont systemFontOfSize:45.f weight:UIFontWeightThin];
+    cityLabel.font = [UIFont systemFontOfSize:38.f weight:UIFontWeightUltraLight];
     cityLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:cityLabel];
     self.cityLabel = cityLabel;
@@ -155,6 +167,30 @@
     [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:5.f]]];
     
     [scene.rootNode addChildNode:earthNode];
+    
+    SCNSphere *sphere2 = [SCNSphere sphereWithRadius:kTagRadius];
+    sphere2.firstMaterial.diffuse.contents = RGBCOLOR(255, 81, 47);
+    SCNNode *tagNode = [SCNNode nodeWithGeometry:sphere2];
+    tagNode.hidden = YES;
+    //粒子
+    SCNParticleSystem *particles = [SCNParticleSystem new];
+    //循环发射
+    particles.loops = YES;
+    particles.particleLifeSpan = 1.f;
+    particles.birthRate = 50.f;
+    particles.emissionDuration = 2.f;
+    particles.spreadingAngle = 10;
+    particles.particleDiesOnCollision = YES;
+    particles.particleLifeSpanVariation = 0.3f;
+    particles.particleVelocity = 1.5f;
+    particles.particleLifeSpanVariation = 3.f;
+    particles.particleSize = 0.1f;
+    particles.stretchFactor = 0.05f;
+    particles.particleImage = [UIImage imageNamed:@"particle"];
+    [tagNode addParticleSystem:particles];
+    
+    [self.earthNode addChildNode:tagNode];
+    self.tagNode = tagNode;
 }
 
 #pragma mark - Tool
@@ -164,8 +200,36 @@
     if (!cityDic) {
         return @"";
     }
-    
     return [NSString stringWithFormat:@"%@ (%.0f,%.0f)",[cityDic objectForKey:kCityKeyName],[[cityDic objectForKey:kCityKeyLatitude] doubleValue],[[cityDic objectForKey:kCityKeyLongitude] doubleValue]];
+}
+
+- (void)adjustTagWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude
+{
+    self.tagNode.hidden = NO;
+    
+    self.tagNode.position = [self vectorWithLatitude:latitude longitude:longitude radius:kEarthRadius + kTagRadius];
+    
+}
+
+- (SCNVector3)vectorWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude radius:(CGFloat)radius
+{
+    //经纬度转坐标
+    //经度
+    CGFloat lg = DEGREES_TO_RADIANS(longitude);
+    //纬度
+    CGFloat lt = DEGREES_TO_RADIANS(latitude);
+    
+    CGFloat largerR = radius;
+    
+    CGFloat y = largerR * sin(lt);
+    
+    CGFloat temp = largerR * cos(lt);
+    
+    CGFloat x = temp * sin(lg);
+    
+    CGFloat z = temp * cos(lg);
+    
+    return SCNVector3Make(x, y, z);
 }
 
 @end
