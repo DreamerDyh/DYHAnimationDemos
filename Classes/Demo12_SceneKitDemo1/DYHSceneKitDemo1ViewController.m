@@ -114,7 +114,6 @@
     [self setUpEarth:sceneView.scene];
     
     //CityLabel
-    
     UILabel *cityLabel = [UILabel new];
     cityLabel.font = [UIFont systemFontOfSize:38.f weight:UIFontWeightUltraLight];
     cityLabel.textColor = [UIColor whiteColor];
@@ -126,6 +125,13 @@
         make.centerX.equalTo(self.view.mas_centerX);
     }];
     
+    //手势识别
+    //拖动
+    UIPanGestureRecognizer *panRecog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.sceneView addGestureRecognizer:panRecog];
+    
+    UILongPressGestureRecognizer *longPressRecog = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self.sceneView addGestureRecognizer:longPressRecog];
 }
 
 - (void)setUpBasicNodes:(SCNScene *)scene
@@ -164,12 +170,12 @@
     sphere.firstMaterial.normal.contents = [UIImage imageNamed:@"earthNormal"];
     self.earthNode = earthNode;
     
-    [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:5.f]]];
+    [self letEarthRun:YES];;
     
     [scene.rootNode addChildNode:earthNode];
     
     SCNSphere *sphere2 = [SCNSphere sphereWithRadius:kTagRadius];
-    sphere2.firstMaterial.diffuse.contents = RGBCOLOR(255, 81, 47);
+    sphere2.firstMaterial.diffuse.contents = [UIColor clearColor];
     SCNNode *tagNode = [SCNNode nodeWithGeometry:sphere2];
     tagNode.hidden = YES;
     //粒子
@@ -191,6 +197,29 @@
     
     [self.earthNode addChildNode:tagNode];
     self.tagNode = tagNode;
+}
+
+#pragma mark - 手势处理
+
+- (void)pan:(UIPanGestureRecognizer *)panRecog
+{
+    if (panRecog.state == UIGestureRecognizerStateBegan) {
+        //终止自转
+        [self letEarthRun:NO];
+    } else if (panRecog.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [panRecog translationInView:self.sceneView];
+        CGFloat fakeDegree = (translation.x / CGRectGetWidth(self.view.bounds)) * 30;
+        self.earthNode.rotation = SCNVector4Make(0.f, 1.f, 0.f, self.earthNode.rotation.w + DEGREES_TO_RADIANS(fakeDegree));
+    } else if (panRecog.state == UIGestureRecognizerStateEnded || panRecog.state == UIGestureRecognizerStateCancelled)
+    {
+        //取消或者终止 重启自转
+        [self letEarthRun:YES];
+    }
+}
+
+- (void)longPress:(UILongPressGestureRecognizer *)tap
+{
+    
 }
 
 #pragma mark - Tool
@@ -230,6 +259,15 @@
     CGFloat z = temp * cos(lg);
     
     return SCNVector3Make(x, y, z);
+}
+
+- (void)letEarthRun:(BOOL)run
+{
+    if (run) {
+        [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:2.f]]];
+    } else {
+        [self.earthNode removeAllActions];
+    }
 }
 
 @end

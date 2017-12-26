@@ -94,7 +94,7 @@ static DYHLocationManager *_sharedManager;
             }
         } else {
             self.currentCity = @{
-                                 kCityKeyName:@"火星",
+                                 kCityKeyName:@"地球某处",
                                  kCityKeyLatitude:@(currentLocation.coordinate.latitude),
                                  kCityKeyLongitude:@(currentLocation.coordinate.longitude)
                                  };
