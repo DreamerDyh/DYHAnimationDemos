@@ -9,8 +9,10 @@
 #import "DYHSceneKitDemo1ViewController.h"
 #import "DYHSceneKitUtil.h"
 #import <SceneKit/SceneKit.h>
+#import "DYHLocationManager.h"
 
 #define kEarthRadius 5.f
+#define kCityLabelTopInset 15.f
 
 @interface DYHSceneKitDemo1ViewController ()
 
@@ -22,6 +24,10 @@
 
 @property (nonatomic, weak) SCNNode *cameraNode;
 
+@property (nonatomic, weak) UILabel *cityLabel;
+
+@property (nonatomic, strong) NSDictionary *city;
+
 @end
 
 @implementation DYHSceneKitDemo1ViewController
@@ -29,6 +35,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpSubviews];
+    [self setUpObservers];
+    [[DYHLocationManager sharedManager] locateCity];
+}
+
+
+#pragma mark - Notification
+
+- (void)setUpObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locateCitySucc:) name:klocateCitySuccessNotification object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)locateCitySucc:(NSNotification *)nofity
+{
+    if (nofity.object && [nofity.object isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *city = (NSDictionary *)nofity.object;
+        self.city = city;
+    }
+}
+
+#pragma mark - Set/ Ger
+
+- (void)setCity:(NSDictionary *)city
+{
+    _city = city;
+    self.cityLabel.alpha = 0.f;
+    self.cityLabel.text = [self cityDescStrWithCityDic:city];
+    [UIView animateWithDuration:0.5f animations:^{
+        self.cityLabel.alpha = 1.f;
+    }];
 }
 
 #pragma mark - SubViews
@@ -59,6 +100,19 @@
     
     [self setUpBasicNodes:sceneView.scene];
     [self setUpEarth:sceneView.scene];
+    
+    //CityLabel
+    
+    UILabel *cityLabel = [UILabel new];
+    cityLabel.font = [UIFont systemFontOfSize:45.f weight:UIFontWeightThin];
+    cityLabel.textColor = [UIColor whiteColor];
+    [self.view addSubview:cityLabel];
+    self.cityLabel = cityLabel;
+    
+    [cityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneView.mas_bottom).offset(kCityLabelTopInset);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
     
 }
 
@@ -101,6 +155,17 @@
     [self.earthNode runAction:[SCNAction repeatActionForever:[SCNAction rotateByX:0.f y:1.f z:0.f duration:5.f]]];
     
     [scene.rootNode addChildNode:earthNode];
+}
+
+#pragma mark - Tool
+
+- (NSString *)cityDescStrWithCityDic:(NSDictionary *)cityDic
+{
+    if (!cityDic) {
+        return @"";
+    }
+    
+    return [NSString stringWithFormat:@"%@ (%.0f,%.0f)",[cityDic objectForKey:kCityKeyName],[[cityDic objectForKey:kCityKeyLatitude] doubleValue],[[cityDic objectForKey:kCityKeyLongitude] doubleValue]];
 }
 
 @end
