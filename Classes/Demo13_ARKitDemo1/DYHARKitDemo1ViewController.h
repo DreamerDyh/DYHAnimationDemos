@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Dai Yunhao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DYHBaseARSceneViewController.h"
 
-@interface DYHARKitDemo1ViewController : UIViewController
+@interface DYHARKitDemo1ViewController : DYHBaseARSceneViewController
 
 @end
