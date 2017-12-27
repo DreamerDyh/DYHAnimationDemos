@@ -72,9 +72,9 @@
     //infoLabel
     UILabel *infoLabel = [UILabel new];
     infoLabel.numberOfLines = 0;
-    infoLabel.backgroundColor = RGBACOLOR(255, 255, 255, 0.8);
+    infoLabel.backgroundColor = [UIColor colorWithWhite:1.f alpha:0.8f];
     infoLabel.textColor = [UIColor darkGrayColor];
-    infoLabel.font = [UIFont systemFontOfSize:25.f];
+    infoLabel.font = [UIFont systemFontOfSize:25.f weight:UIFontWeightThin];
     [self.view addSubview:infoLabel];
     self.sessionInfoLabel = infoLabel;
     
