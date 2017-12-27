@@ -189,22 +189,7 @@
     sphere2.firstMaterial.diffuse.contents = [UIColor clearColor];
     SCNNode *tagNode = [SCNNode nodeWithGeometry:sphere2];
     tagNode.hidden = YES;
-    //粒子
-    SCNParticleSystem *particles = [SCNParticleSystem new];
-    //循环发射
-    particles.loops = YES;
-    particles.particleLifeSpan = 1.f;
-    particles.birthRate = 50.f;
-    particles.emissionDuration = 2.f;
-    particles.spreadingAngle = 10;
-    particles.particleDiesOnCollision = YES;
-    particles.particleLifeSpanVariation = 0.3f;
-    particles.particleVelocity = 1.5f;
-    particles.particleLifeSpanVariation = 3.f;
-    particles.particleSize = 0.1f;
-    particles.stretchFactor = 0.05f;
-    particles.particleImage = [UIImage imageNamed:@"particle"];
-    [tagNode addParticleSystem:particles];
+    [tagNode addParticleSystem:[self fitPraticleSystem]];
     
     [self.earthNode addChildNode:tagNode];
     self.tagNode = tagNode;
@@ -291,15 +276,10 @@
     CGFloat lg = DEGREES_TO_RADIANS(longitude);
     //纬度
     CGFloat lt = DEGREES_TO_RADIANS(latitude);
-    
     CGFloat largerR = radius;
-    
     CGFloat y = largerR * sin(lt);
-    
     CGFloat temp = largerR * cos(lt);
-    
     CGFloat x = temp * sin(lg);
-    
     CGFloat z = temp * cos(lg);
     
     return SCNVector3Make(x, y, z);
@@ -312,6 +292,27 @@
     } else {
         [self.earthNode removeAllActions];
     }
+}
+
+- (SCNParticleSystem *)fitPraticleSystem
+{
+    //粒子
+    SCNParticleSystem *particles = [SCNParticleSystem new];
+    //循环发射
+    particles.loops = YES;
+    particles.particleLifeSpan = 1.f;
+    particles.birthRate = 50.f;
+    particles.emissionDuration = 2.f;
+    particles.spreadingAngle = 10;
+    particles.particleDiesOnCollision = YES;
+    particles.particleLifeSpanVariation = 0.3f;
+    particles.particleVelocity = 1.5f;
+    particles.particleLifeSpanVariation = 3.f;
+    particles.particleSize = 0.1f;
+    particles.stretchFactor = 0.05f;
+    particles.particleImage = [UIImage imageNamed:@"particle"];
+    
+    return particles;
 }
 
 @end
