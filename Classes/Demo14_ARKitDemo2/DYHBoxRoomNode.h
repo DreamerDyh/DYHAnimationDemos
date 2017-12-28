@@ -16,4 +16,12 @@
  */
 - (instancetype)initWithWidth:(CGFloat)width length:(CGFloat)length height:(CGFloat)height;
 
++ (instancetype)boxNodeWithWidth:(CGFloat)width length:(CGFloat)length height:(CGFloat)height;
+
+/*
+ * 传入一组图片名 以实现skyBox
+ * 顺序为 +z -z +x -x +y -y
+ */
+@property (nonatomic, strong) NSArray<NSString *> *skyBoxImages;
+
 @end

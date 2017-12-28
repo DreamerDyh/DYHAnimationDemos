@@ -80,8 +80,10 @@
         return;
     }
     DYHBoxRoomNode *boxRoom = [[DYHBoxRoomNode alloc] initWithWidth:3.f length:3.f height:3.f];
+    boxRoom.skyBoxImages = @[@"nebulla_front_z",@"nebulla_back_z",@"nebulla_front_x",@"nebulla_back_x",@"nebulla_front_y",@"nebulla_back_y"];
     boxRoom.position = SCNVector3Make(result.worldTransform.columns[3].x, result.worldTransform.columns[3].y, result.worldTransform.columns[3].z);
     [self.sceneView.scene.rootNode addChildNode:boxRoom];
+    self.roomNode = boxRoom;
 }
 
 @end
