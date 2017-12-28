@@ -24,7 +24,7 @@
 
 - (void)setUpSubviews
 {
-    self.showDebugFeatures = YES;
+    self.sceneView.debugOptions = ARSCNDebugOptionShowWorldOrigin;
     self.sceneView.delegate = self;
     
     UITapGestureRecognizer *tapRecog = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapSceneView:)];
