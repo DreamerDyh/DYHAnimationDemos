@@ -14,7 +14,6 @@
  * 宽 x 长 x 高
  * 其中宽为带门的一面 也是正对观察方向的一面
  */
-
 - (instancetype)initWithWidth:(CGFloat)width length:(CGFloat)length height:(CGFloat)height;
 
 @end

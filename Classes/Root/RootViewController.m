@@ -21,6 +21,7 @@
 #import "DYHUIViewPropertyAnimatorViewController.h"
 #import "DYHSceneKitDemo1ViewController.h"
 #import "DYHARKitDemo1ViewController.h"
+#import "DYHARKitDemo2ViewController.h"
 
 #define kNormalRootCellId @"NormalRootCellId"
 
@@ -38,6 +39,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
     demo11_uiViewPropertyAnimator,
     demo12_sceneKitDemo1,
     demo13_arKitDemo1,
+    demo14_arKitDemo2,
 };
 
 @interface RootViewController ()
@@ -88,6 +90,7 @@ typedef NS_ENUM(NSInteger, rowTags) {
                    @(demo11_uiViewPropertyAnimator):[DYHUIViewPropertyAnimatorViewController class],
                    @(demo12_sceneKitDemo1):[DYHSceneKitDemo1ViewController class],
                    @(demo13_arKitDemo1):[DYHARKitDemo1ViewController class],
+                   @(demo14_arKitDemo2):[DYHARKitDemo2ViewController class],
                    };
     }
     return _demos;
@@ -180,6 +183,9 @@ typedef NS_ENUM(NSInteger, rowTags) {
             break;
         case demo13_arKitDemo1:
             text = @"Demo13-ARKitDemo1";
+            break;
+        case demo14_arKitDemo2:
+            text = @"Demo14-ARKitDemo2";
             break;
         default:
             text = @"404";
