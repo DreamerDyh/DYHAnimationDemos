@@ -8,7 +8,7 @@
 
 #import "DYHBoxRoomNode.h"
 
-#define kDebugOperator 3.f
+#define kDebugOperator 1.f
 #define kDefaultSide 3.f
 #define kDefaultThickness (0.05f * kDebugOperator)
 
@@ -59,7 +59,6 @@ typedef NS_ENUM(NSUInteger, kHideOption) {
     SCNNode *floor = [self structureSegmentNodeWithWidth:self.width height:kDefaultThickness length:self.length hideOption:kHideOptionMinusY];
     [self addChildNode:floor];
     floor.position = SCNVector3Make(0, halfThick, 0);
-    
     
     //复用参数计算
     //墙高
