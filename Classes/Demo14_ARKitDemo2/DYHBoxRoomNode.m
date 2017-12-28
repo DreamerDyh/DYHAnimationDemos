@@ -109,9 +109,9 @@ typedef NS_ENUM(NSUInteger, kHideOption) {
     bottomNodeWall.position = SCNVector3Make(0, halfThick, fbWallAbsoluteZ);
     
     //屋顶
-    SCNNode *roof = [self structureSegmentNodeWithWidth:self.width + 2*kDefaultThickness height:kDefaultThickness length:self.length + 2*kDefaultThickness hideOption:kHideOptionUpperY];
+    SCNNode *roof = [self structureSegmentNodeWithWidth:self.width height:kDefaultThickness length:self.length hideOption:kHideOptionUpperY];
     [self addChildNode:roof];
-    roof.position = SCNVector3Make(0, wallHeight + halfThick, 0);
+    roof.position = SCNVector3Make(0, self.height + halfThick, 0);
 }
 
 #pragma mark - Nodes
@@ -120,7 +120,44 @@ typedef NS_ENUM(NSUInteger, kHideOption) {
 {
     SCNBox *box = [SCNBox boxWithWidth:width height:height length:length chamferRadius:0.f];
     box.firstMaterial.diffuse.contents = [UIImage imageNamed:@"saber"];
+    box.firstMaterial.writesToDepthBuffer = YES;
+    box.firstMaterial.readsFromDepthBuffer = YES;
     SCNNode *node = [SCNNode nodeWithGeometry:box];
+    node.renderingOrder = 200;
+    
+    SCNBox *maskBox = [SCNBox boxWithWidth:width height:height length:length chamferRadius:0.f];
+    maskBox.firstMaterial.diffuse.contents = [UIColor redColor];
+    maskBox.firstMaterial.transparency = 0.000001f;
+    //just try
+    maskBox.firstMaterial.writesToDepthBuffer = YES;
+    SCNNode *mask = [SCNNode nodeWithGeometry:maskBox];
+    mask.renderingOrder = 100;
+    [node addChildNode:mask];
+    
+    switch (hideOption) {
+        case kHideOptionUpperZ:
+        case kHideOptionMinusZ:
+        {
+            mask.position = SCNVector3Make(0, 0, hideOption == kHideOptionUpperZ ? length : -length);
+            
+        }break;
+        case kHideOptionUpperX:
+        case kHideOptionMinusX:
+        {
+            maskBox.length += 2.1*kDefaultThickness;
+            mask.position = SCNVector3Make(hideOption == kHideOptionUpperX ? width : -width, 0, 0);
+        }break;
+        case kHideOptionUpperY:
+        case kHideOptionMinusY:
+        {
+            maskBox.width += 2.1*kDefaultThickness;
+            maskBox.length += 2.1*kDefaultThickness;
+            mask.position = SCNVector3Make(0, hideOption == kHideOptionUpperY ? height : -height, 0);
+            
+        }break;
+        default:
+        break;
+    }
     return node;
 }
 
